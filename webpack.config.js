@@ -17,6 +17,7 @@ module.exports = {
   context: path.join(__dirname, "./client"),
   entry: {
     jsx: "./index.js",
+    html: "./index.html",
     vendor: [
       "react",
       "react-dom",
