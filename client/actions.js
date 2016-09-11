@@ -5,6 +5,7 @@ export const LOAD_RECIPES = "LOAD_RECIPES";
 
 export function addRecipeAction(newRecipe) {
   return {
+    meta: {remote: true},
     type: ADD_RECIPE,
     newRecipe
   };
@@ -12,6 +13,7 @@ export function addRecipeAction(newRecipe) {
 
 export function editRecipeAction(editedRecipe) {
   return {
+    meta: {remote: true}
     type: EDIT_RECIPE,
     editedRecipe
   };
@@ -19,6 +21,7 @@ export function editRecipeAction(editedRecipe) {
 
 export function removeRecipeAction(id) {
   return {
+    meta: {remote: true},
     type: REMOVE_RECIPE,
     id
   }
