@@ -13,7 +13,7 @@ export function addRecipeAction(newRecipe) {
 
 export function editRecipeAction(editedRecipe) {
   return {
-    meta: {remote: true}
+    meta: {remote: true},
     type: EDIT_RECIPE,
     editedRecipe
   };

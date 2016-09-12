@@ -10,6 +10,7 @@ import reducer from './reducer';
 import { loadRecipesAction } from "./actions";
 import remoteActionMiddleware from "./remoteActionMiddleware";
 import App from "./app/App";
+import RecipeList from "./components/RecipeList";
 
 
 const socket = io("http://localhost:3331");
@@ -25,7 +26,8 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/recipes" component={App}>
+      <Route path="/" component={App}>
+        <Route path="/recipes" component={RecipeList} />
       </Route>
     </Router>
   </Provider>,
