@@ -35,7 +35,7 @@ class RecipeList extends React.Component {
 };
 
 function mapStateToProps(state) {
-  return { recipes: state.toJS() || {} };
+  return { recipes: state.recipes.toJS() || {} };
 }
 
 const wrap = connect(mapStateToProps);

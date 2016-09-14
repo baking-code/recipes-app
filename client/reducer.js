@@ -1,7 +1,7 @@
 import { Map } from "immutable";
 import { v4 as uuid } from "node-uuid";
 
-import { ADD_RECIPE, REMOVE_RECIPE, EDIT_RECIPE, LOAD_RECIPES } from "./actions";
+import { ADD_RECIPE, REMOVE_RECIPE, EDIT_RECIPE, LOAD_RECIPES, TOGGLE_EDIT_MODE } from "./actions";
 
 export const INITIAL_STATE = Map();
 
@@ -23,7 +23,7 @@ function loadRecipes(state, recipes) {
   return Map(recipes);
 }
 
-export default function reducer(state = INITIAL_STATE, action) {
+export function recipesReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case ADD_RECIPE:
       return addRecipe(state, action.newRecipe);
@@ -35,5 +35,14 @@ export default function reducer(state = INITIAL_STATE, action) {
       return loadRecipes(state, action.recipes);
     default:
       return state
+  }
+}
+
+export function editReducer(state = false, action) {
+  switch (action.type) {
+    case TOGGLE_EDIT_MODE:
+      return !state;
+    default:
+      return state;
   }
 }

@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router, Route, browserHistory } from "react-router";
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Provider } from "react-redux";
 import io from 'socket.io-client';
 
-import reducer from './reducer';
+import { recipesReducer, editReducer } from './reducer';
 import { loadRecipesAction } from "./actions";
 import remoteActionMiddleware from "./remoteActionMiddleware";
 import App from "./app/App";
@@ -19,7 +19,10 @@ socket.on("state", state =>
 );
 
 const store = createStore(
-  reducer,
+  combineReducers({
+    recipes: recipesReducer,
+    editMode: editReducer
+  }),
   applyMiddleware(remoteActionMiddleware(socket))
 );
 

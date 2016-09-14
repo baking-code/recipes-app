@@ -10,11 +10,11 @@ class App extends Component {
     console.log("Rendered");
     return (
       <div>
-        <Navbar
-          brand="Recipes"
-          right
-          className="purple darken-1"
-        />
+        <nav>
+          <div className="nav-wrapper purple darken-1">
+            <a href="/recipes" className="brand-logo">Recipes</a>
+          </div>
+        </nav>
         <main>
           {this.props.children}
         </main>

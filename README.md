@@ -5,5 +5,9 @@ node app, accessed via express.
 
 ### TODO
 * Mock recipes file
-* Construct app
-* Add REST api, loading and saving state to the server
+* Serve store eagerly, maybe use localstorage
+* Each display item should contain a "content editable"
+  https://github.com/lovasoa/react-contenteditable
+  
+  * Text area
+  * Each collection item should contain one
