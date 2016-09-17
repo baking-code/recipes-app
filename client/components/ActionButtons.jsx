@@ -1,5 +1,8 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Button } from "react-materialize";
+
+import { toggleEditMode } from "../actions";
 
 const ActionButtons = (props) => (
   <div>
@@ -9,7 +12,7 @@ const ActionButtons = (props) => (
       className="lime lighten-1"
       large
       style={{bottom: "90px", right: "24px", position: "absolute"}}
-      onClick={() => { console.log("Edit")}}
+      onClick={() => { props.dispatch(toggleEditMode()) }}
     />
     <Button
       floating
@@ -17,9 +20,10 @@ const ActionButtons = (props) => (
       className="purple darken-1"
       large
       style={{bottom: "25px", right: "24px", position: "absolute"}}
-      onClick={() => { console.log("Add")}}
+      onClick={() => { }}
     />
   </div>
 )
 
-export default ActionButtons;
+const wrap = connect();
+export default wrap(ActionButtons);
