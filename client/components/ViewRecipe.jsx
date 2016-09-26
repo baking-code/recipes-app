@@ -1,25 +1,21 @@
 import React, { Component, PropTypes } from 'react';
-import _ from 'lodash';
-import { v4 as uuid } from 'node-uuid';
 import { connect } from 'react-redux';
-import ContentEditable from 'react-contenteditable';
+import { v4 as uuid } from 'node-uuid';
 
 import { Card, Col, Row, Collection, CollectionItem, Tag } from 'react-materialize';
-import EditButtons from './EditButtons';
 
-class EditRecipe extends Component {
+import ViewButtons from './ViewButtons';
+
+class ViewRecipe extends Component {
 
   render() {
     const { recipe } = this.props;
     return (
-      <div className="lime lighten-4">
+      <div>
         <Row>
           <Col s={6} offset="s2">
-            <Card title={recipe.name}>
-              <ContentEditable
-                html={recipe.description}
-                ref="description"
-              />
+            <Card title={recipe.name} >
+              {recipe.description}
             </Card>
           </Col>
           <Col s={4} >
@@ -28,30 +24,26 @@ class EditRecipe extends Component {
         </Row>
         <Row>
           <Col s={3} offset="s2">
-            <Collection header="Ingredients" ref="ingredients">
+            <Collection header="Ingredients">
               {_.map(recipe.ingredients, (ing) => {
                 return (
                   <CollectionItem
                     key={uuid()}
                   >
-                  <ContentEditable
-                    html={ing}
-                  />
+                    {ing}
                   </CollectionItem>
                 );
               })}
             </Collection>
           </Col>
           <Col s={5}>
-            <Collection header="Method" ref="method">
+            <Collection header="Method">
               {_.map(recipe.method, (m) => {
                 return (
                   <CollectionItem
                     key={uuid()}
                   >
-                    <ContentEditable
-                      html={m}
-                    />
+                    {m}
                   </CollectionItem>
                 );
               })}
@@ -59,15 +51,10 @@ class EditRecipe extends Component {
           </Col>
         </Row>
         <Row><Col s={10} offset="s2">{_.map(recipe.tags, tag => <Tag key={tag}>{tag}</Tag>)}</Col></Row>
-        <EditButtons />
+        <ViewButtons />
       </div>
     );
   }
 }
-
-EditRecipe.propTypes = {
-  recipe: PropTypes.object.isRequired,
-};
-
 const wrap = connect();
-export default wrap(EditRecipe);
+export default wrap(ViewRecipe);
