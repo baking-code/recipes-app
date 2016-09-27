@@ -8,7 +8,8 @@
     "start": "webpack-dev-server -d --history-api-fallback --inline --progress --colors --port 4441",
     "server": "babel-node server/app.js",
     "build": "webpack --debug",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "lint": "eslint **/*.js{x,}"
   },
   "author": "Benjamin King",
   "license": "ISC",
