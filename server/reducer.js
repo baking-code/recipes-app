@@ -15,7 +15,7 @@ function removeRecipe(state, id) {
 }
 
 function editRecipe(state, recipe) {
-  return state.update(recipe.id, recipe);
+  return state.update(recipe.id, () => recipe);
 }
 
 function loadRecipes(state, recipes) {
@@ -34,6 +34,6 @@ export default function reducer(state = INITIAL_STATE, action) {
     case LOAD_RECIPES:
       return loadRecipes(state, action.recipes);
     default:
-      return state
+      return state;
   }
 }
