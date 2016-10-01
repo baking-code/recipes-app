@@ -10,7 +10,7 @@ import EditButtons from "./EditButtons.jsx";
 class EditRecipe extends Component {
 
   render() {
-    const { recipe } = this.props;
+    const { recipe, dispatch } = this.props;
     // for refs use something like
     //     render: function() {
     //   return <TextInput ref={(c) => this._input = c} />;
@@ -38,7 +38,7 @@ class EditRecipe extends Component {
             </Card>
           </Col>
           <Col s={4} >
-            <img src={recipe.img} />
+            <img src={recipe.image} />
           </Col>
         </Row>
         <Row>
@@ -74,7 +74,7 @@ class EditRecipe extends Component {
           </Col>
         </Row>
         <Row><Col s={10} offset="s2">{_.map(recipe.tags, tag => <Tag key={tag}>{tag}</Tag>)}</Col></Row>
-        <EditButtons />
+        <EditButtons dispatch={dispatch} recipe={recipe} />
       </div>
     );
   }

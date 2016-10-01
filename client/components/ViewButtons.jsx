@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Button } from "react-materialize";
 
 import { toggleEditMode } from "../actions";
@@ -25,5 +24,4 @@ const ViewButtons = props => (
   </div>
 );
 
-const wrap = connect();
-export default wrap(ViewButtons);
+export default ViewButtons;

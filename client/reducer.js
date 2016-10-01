@@ -15,7 +15,7 @@ function removeRecipe(state, id) {
 }
 
 function editRecipe(state, recipe) {
-  return state.update(recipe.id, recipe);
+  return state.update(recipe.id, () => recipe);
 }
 
 function loadRecipes(state, recipes) {
