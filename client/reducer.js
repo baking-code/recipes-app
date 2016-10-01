@@ -34,7 +34,7 @@ export function recipesReducer(state = INITIAL_STATE, action) {
     case LOAD_RECIPES:
       return loadRecipes(state, action.recipes);
     default:
-      return state
+      return state;
   }
 }
 

@@ -1,10 +1,11 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { v4 as uuid } from 'node-uuid';
+import React, { Component, PropTypes } from "react";
+import _ from "lodash";
+import { connect } from "react-redux";
+import { v4 as uuid } from "node-uuid";
 
-import { Card, Col, Row, Collection, CollectionItem, Tag } from 'react-materialize';
+import { Card, Col, Row, Collection, CollectionItem, Tag } from "react-materialize";
 
-import ViewButtons from './ViewButtons';
+import ViewButtons from "./ViewButtons.jsx";
 
 class ViewRecipe extends Component {
 

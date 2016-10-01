@@ -1,10 +1,8 @@
-import React, { Component, PropTypes } from 'react';
-import _ from 'lodash';
-import { v4 as uuid } from 'node-uuid';
-import { connect } from 'react-redux';
+import React, { Component, PropTypes } from "react";
+import { connect } from "react-redux";
 
-import EditRecipe from './EditRecipe';
-import ViewRecipe from './ViewRecipe';
+import EditRecipe from "./EditRecipe.jsx";
+import ViewRecipe from "./ViewRecipe.jsx";
 
 class Recipe extends Component {
 
@@ -20,7 +18,7 @@ class Recipe extends Component {
 
 Recipe.propTypes = {
   recipe: PropTypes.object.isRequired,
-  isEdit: PropTypes.bool,
+  isEdit: PropTypes.bool
 };
 
 function mapStateToProps(state, ownProps) {
@@ -28,7 +26,7 @@ function mapStateToProps(state, ownProps) {
   const { id } = ownProps.routeParams;
   return {
     recipe: recipes[id],
-    isEdit: state.editMode,
+    isEdit: state.editMode
   };
 }
 const wrap = connect(mapStateToProps);

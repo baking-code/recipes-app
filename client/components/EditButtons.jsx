@@ -1,8 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Button } from 'react-materialize';
+import React from "react";
+import { connect } from "react-redux";
+import { Button } from "react-materialize";
 
-import { editRecipeAction, toggleEditMode } from '../actions';
+import { editRecipeAction, toggleEditMode } from "../actions";
 
 const ViewButtons = props => (
   <div>
@@ -11,7 +11,7 @@ const ViewButtons = props => (
       icon="save"
       className="lime lighten-1"
       large
-      style={{ bottom: '90px', right: '24px', position: 'absolute' }}
+      style={{ bottom: "90px", right: "24px", position: "absolute" }}
       onClick={() => { props.dispatch(editRecipeAction(props.recipe)); }}
     />
     <Button
@@ -19,7 +19,7 @@ const ViewButtons = props => (
       icon="cancel"
       className="purple darken-1"
       large
-      style={{ bottom: '25px', right: '24px', position: 'absolute' }}
+      style={{ bottom: "25px", right: "24px", position: "absolute" }}
       onClick={() => { props.dispatch(toggleEditMode()); }}
     />
   </div>

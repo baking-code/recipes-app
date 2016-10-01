@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": "airbnb-base",
   "root": true,
   "rules": {
     "comma-dangle": [2, "never"],
@@ -18,9 +18,20 @@
     "prefer-arrow-callback": 0,
     "prefer-template": 0,
     "quote-props": [0, "consistent"],
-    "space-before-function-paren": 0
+    "space-before-function-parent": 0,
+    "import/no-unresolved": [2, "ignore": ["common", "^app/"]],
+    "react/jsx-uses-vars": [2],
+    "react/jsx-uses-react": [2]
   },
   "settings": {
     "import/resolver": webpack
-  }
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+        "jsx": true
+    }
+  },
+  "plugins": [
+    "react"
+  ]
 }

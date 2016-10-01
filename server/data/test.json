@@ -15,7 +15,9 @@
       "toast"
     ],
     "image": "",
-    "tags": ["quick", "meal"]
+    "tags": ["quick", "meal"],
+    "prepTime": 0,
+    "cookTime": 10
   },
   "id2": {
     "name": "Egg on Toast",
@@ -33,6 +35,8 @@
       "toast"
     ],
     "image": "",
-    "tags": []
+    "tags": [],
+    "prepTime": 0,
+    "cookTime": 10
   }
 }

@@ -1,9 +1,9 @@
-import React from 'react';
-import _ from 'lodash';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import React from "react";
+import _ from "lodash";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
 
-import { Row, Col, Collection, CollectionItem } from 'react-materialize';
+import { Row, Col, Collection, CollectionItem } from "react-materialize";
 
 
 class RecipeList extends React.Component {

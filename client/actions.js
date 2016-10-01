@@ -6,7 +6,7 @@ export const TOGGLE_EDIT_MODE = "TOGGLE_EDIT_MODE";
 
 export function addRecipeAction(newRecipe) {
   return {
-    meta: {remote: true},
+    meta: { remote: true },
     type: ADD_RECIPE,
     newRecipe
   };
@@ -14,7 +14,7 @@ export function addRecipeAction(newRecipe) {
 
 export function editRecipeAction(editedRecipe) {
   return {
-    meta: {remote: true},
+    meta: { remote: true },
     type: EDIT_RECIPE,
     editedRecipe
   };
@@ -22,23 +22,23 @@ export function editRecipeAction(editedRecipe) {
 
 export function removeRecipeAction(id) {
   return {
-    meta: {remote: true},
+    meta: { remote: true },
     type: REMOVE_RECIPE,
     id
-  }
+  };
 }
 
 export function loadRecipesAction(recipes) {
   return {
     type: LOAD_RECIPES,
     recipes
-  }
+  };
 }
 
 export function toggleEditMode() {
   return {
     type: TOGGLE_EDIT_MODE
-  }
+  };
 }
 
 /*
