@@ -1,4 +1,3 @@
-
 /* eslint-disable no-var, vars-on-top */
 var webpack = require("webpack");
 var path = require("path");
@@ -40,8 +39,8 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: { presets: [ 'es2015', 'react' ] }
+        loader: "babel",
+        query: { presets: ["es2015", "react"] }
       },
       {
         test: /\.scss$/,
@@ -68,4 +67,4 @@ module.exports = {
   devServer: {
     contentBase: "./client"
   }
-}
+};
