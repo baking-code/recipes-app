@@ -1,6 +1,6 @@
 export const ADD_RECIPE = "ADD_RECIPE";
 export const REMOVE_RECIPE = "REMOVE_RECIPE";
-export const EDIT_RECIPE = "REMOVE_RECIPE";
+export const EDIT_RECIPE = "EDIT_RECIPE";
 export const LOAD_RECIPES = "LOAD_RECIPES";
 export const TOGGLE_EDIT_MODE = "TOGGLE_EDIT_MODE";
 

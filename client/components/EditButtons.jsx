@@ -1,8 +1,6 @@
 import React from "react";
 import { Button } from "react-materialize";
 
-import { editRecipeAction, toggleEditMode } from "../actions";
-
 const ViewButtons = props => (
   <div>
     <Button
@@ -11,7 +9,7 @@ const ViewButtons = props => (
       className="lime lighten-1"
       large
       style={{ bottom: "90px", right: "24px", position: "absolute" }}
-      onClick={() => { props.dispatch(editRecipeAction(props.recipe)); }}
+      onClick={props.saveEdit}
     />
     <Button
       floating
@@ -19,7 +17,7 @@ const ViewButtons = props => (
       className="purple darken-1"
       large
       style={{ bottom: "25px", right: "24px", position: "absolute" }}
-      onClick={() => { props.dispatch(toggleEditMode()); }}
+      onClick={props.toggleEdit}
     />
   </div>
 );
