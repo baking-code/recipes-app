@@ -9,7 +9,7 @@ const ViewButtons = props => (
       className="lime lighten-1"
       large
       style={{ bottom: "90px", right: "24px", position: "absolute" }}
-      onClick={props.saveEdit}
+      onClick={() => { props.saveEdit(); props.toggleEdit(); }}
     />
     <Button
       floating
