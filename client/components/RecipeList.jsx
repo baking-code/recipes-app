@@ -3,8 +3,9 @@ import _ from "lodash";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
-import { Row, Col, Collection, CollectionItem } from "react-materialize";
+import { Row, Col, Collection, CollectionItem, Button } from "react-materialize";
 
+import { toggleEditMode } from "../actions";
 
 class RecipeList extends React.Component {
 
@@ -27,6 +28,14 @@ class RecipeList extends React.Component {
             </Collection>
           </Col>
         </Row>
+        <Button
+          floating
+          icon="add"
+          className="purple darken-1"
+          large
+          style={{ bottom: "25px", right: "24px", position: "absolute" }}
+          onClick={() => { this.props.dispatch(toggleEditMode()); this.props.router.push({ pathname: "/new" }); }}
+        />
       </div>
     );
   }

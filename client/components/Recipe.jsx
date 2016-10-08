@@ -24,8 +24,10 @@ Recipe.propTypes = {
 function mapStateToProps(state, ownProps) {
   const recipes = state.recipes.toJS() || {};
   const { id } = ownProps.routeParams;
+  // should be undefined if new
+  const activeRecipe = recipes[id];
   return {
-    recipe: recipes[id],
+    recipe: activeRecipe,
     isEdit: state.editMode
   };
 }

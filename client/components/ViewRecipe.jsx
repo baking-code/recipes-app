@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { v4 as uuid } from "node-uuid";
 
-import { Card, Col, Row, Collection, CollectionItem, Tag } from "react-materialize";
+import { Card, Col, Row, Collection, CollectionItem, Tag, Button } from "react-materialize";
 
-import ViewButtons from "./ViewButtons.jsx";
+import { toggleEditMode } from "../actions";
 
 class ViewRecipe extends Component {
 
@@ -52,7 +52,14 @@ class ViewRecipe extends Component {
           </Col>
         </Row>
         <Row><Col s={10} offset="s2">{_.map(recipe.tags, tag => <Tag key={tag}>{tag}</Tag>)}</Col></Row>
-        <ViewButtons dispatch={dispatch} />
+          <Button
+            floating
+            icon="mode_edit"
+            className="lime lighten-1"
+            large
+            style={{ bottom: "25px", right: "24px", position: "absolute" }}
+            onClick={() => { dispatch(toggleEditMode()); }}
+          />
       </div>
     );
   }

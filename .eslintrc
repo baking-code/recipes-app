@@ -28,7 +28,8 @@
   },
   "parserOptions": {
     "ecmaFeatures": {
-        "jsx": true
+        "jsx": true,
+        spread: true
     }
   },
   "plugins": [
