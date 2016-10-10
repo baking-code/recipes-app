@@ -4,7 +4,8 @@ import { v4 as uuid } from "node-uuid";
 import { connect } from "react-redux";
 import ContentEditable from "react-contenteditable";
 
-import { Card, Col, Row, Collection, CollectionItem, Tag, Icon, Button } from "react-materialize";
+import { Card, Col, Row, Collection, CollectionItem, Icon, Button } from "react-materialize";
+import Tags from "./Tags";
 import { editRecipeAction, toggleEditMode } from "../actions";
 
 
@@ -39,6 +40,12 @@ class EditRecipe extends Component {
     const arr = recipe[collectionName];
     const modified = [...arr.slice(0, index), ...arr.slice(index + 1)];
     recipe[collectionName] = modified;
+    this.editRecipe(recipe);
+  }
+
+  updateTags(tags) {
+    const recipe = {...this.props.recipe};
+    recipe.tags = tags;
     this.editRecipe(recipe);
   }
 
@@ -110,9 +117,7 @@ class EditRecipe extends Component {
           </Col>
         </Row>
         <Row><Col s={10} offset="s2">
-          <div>
-            {_.map(recipe.tags, tag => <Tag key={tag}>{tag}</Tag>)}
-          </div>
+          <Tags tags={recipe.tags} updateTags={(tags) => this.updateTags(tags)}/>
         </Col></Row>
         <Button
           floating
@@ -144,8 +149,8 @@ EditRecipe.defaultProps = {
     name: "",
     description: "",
     tags: [],
-    method: [],
-    ingredients: [],
+    method: [""],
+    ingredients: [""],
     id: uuid()
   }
 }

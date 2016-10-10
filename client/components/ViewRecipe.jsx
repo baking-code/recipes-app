@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import _ from "lodash";
 import { v4 as uuid } from "node-uuid";
 
-import { Card, Col, Row, Collection, CollectionItem, Tag, Button } from "react-materialize";
+import { Card, Col, Row, Collection, CollectionItem, Chip, Button } from "react-materialize";
 
 import { toggleEditMode } from "../actions";
 
@@ -51,7 +51,7 @@ class ViewRecipe extends Component {
             </Collection>
           </Col>
         </Row>
-        <Row><Col s={10} offset="s2">{_.map(recipe.tags, tag => <Tag key={tag}>{tag}</Tag>)}</Col></Row>
+        <Row><Col s={10} offset="s2">{_.map(recipe.tags, tag => <Chip key={tag.id}>{tag.text}</Chip>)}</Col></Row>
           <Button
             floating
             icon="mode_edit"
