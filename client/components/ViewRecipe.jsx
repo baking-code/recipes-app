@@ -20,7 +20,7 @@ class ViewRecipe extends Component {
             </Card>
           </Col>
           <Col s={4} >
-            <img src={recipe.image} />
+            <img src={recipe.image} width={250} height={250}/>
           </Col>
         </Row>
         <Row>
