@@ -4,7 +4,7 @@ import _ from "lodash";
 import { v4 as uuid } from "node-uuid";
 
 import { Card, Col, Row, Collection, CollectionItem, Chip, Button } from "react-materialize";
-
+import List from "./List";
 import { toggleEditMode } from "../actions";
 
 class ViewRecipe extends Component {
@@ -25,30 +25,10 @@ class ViewRecipe extends Component {
         </Row>
         <Row>
           <Col s={3} offset="s2">
-            <Collection header="Ingredients">
-              {_.map(recipe.ingredients, (ing) => {
-                return (
-                  <CollectionItem
-                    key={uuid()}
-                  >
-                    {ing}
-                  </CollectionItem>
-                );
-              })}
-            </Collection>
+            <List items={recipe.ingredients} title="Ingredients" />
           </Col>
           <Col s={5}>
-            <Collection header="Method">
-              {_.map(recipe.method, (m) => {
-                return (
-                  <CollectionItem
-                    key={uuid()}
-                  >
-                    {m}
-                  </CollectionItem>
-                );
-              })}
-            </Collection>
+            <List items={recipe.method} title="Method" />
           </Col>
         </Row>
         <Row><Col s={10} offset="s2">{_.map(recipe.tags, tag => <Chip key={tag.id}>{tag.text}</Chip>)}</Col></Row>

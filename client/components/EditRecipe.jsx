@@ -6,6 +6,7 @@ import Dropzone from "react-dropzone";
 
 import { Card, Col, Row, Collection, CollectionItem, Icon, Button } from "react-materialize";
 import Tags from "./Tags";
+import EditList from "./EditList";
 import { editRecipeAction, toggleEditMode } from "../actions";
 
 
@@ -13,6 +14,9 @@ class EditRecipe extends Component {
   constructor(props) {
     super(props);
     this.state = {...props.recipe};
+    this.editRecipeCollection = this.editRecipeCollection.bind(this);
+    this.removeFromCollection = this.removeFromCollection.bind(this);
+    this.addToCollection = this.addToCollection.bind(this);
   }
 
 
@@ -71,9 +75,8 @@ class EditRecipe extends Component {
   render() {
     const { recipe, dispatch } = this.props;
     const imageArea = recipe.image ?
-      (<div><img src={recipe.image} width={250} height={250}/><Button onClick={() => this.removeImage()} icon="cancel"/></div>)
-      :
-      (<Dropzone accept="image/*" onDrop={(f) => this.addImage(f)}><Icon>plus</Icon></Dropzone>)
+      (<div><img src={recipe.image} width={250} height={250}/><Button onClick={() => this.removeImage()} icon="cancel"/></div>) :
+      (<Dropzone accept="image/*" onDrop={(f) => this.addImage(f)}><Icon>plus</Icon></Dropzone>);
 
     return (
       <div className="lime lighten-4">
@@ -101,42 +104,22 @@ class EditRecipe extends Component {
         </Row>
         <Row>
           <Col s={3} offset="s2">
-            <Collection header="Ingredients">
-              {_.map(recipe.ingredients, (ing, index) => {
-                return (
-                  <CollectionItem
-                    key={`ing-${index}`}
-                  >
-                  <input
-                    defaultValue={ing}
-                    placeholder="Enter ingredient"
-                    onChange={(evt) => this.editRecipeCollection("ingredients", index, evt.target.value)}
-                  />
-                <Button onClick={() => this.removeFromCollection("ingredients", index)} icon="cancel"/>
-                  </CollectionItem>
-                );
-              })}
-              <Button onClick={() => this.addToCollection("ingredients")}><Icon>add</Icon></Button>
-            </Collection>
+            <EditList
+              items={recipe.ingredients}
+              title="Ingredients"
+              editRecipeCollection={this.editRecipeCollection}
+              removeFromCollection={this.removeFromCollection}
+              addToCollection={this.addToCollection}
+            />
           </Col>
           <Col s={5}>
-            <Collection header="Method">
-              {_.map(recipe.method, (m, index) => {
-                return (
-                  <CollectionItem
-                    key={`method-${index}`}
-                  >
-                    <input
-                      defaultValue={m}
-                      placeholder="Enter method"
-                      onChange={(evt) => this.editRecipeCollection("method", index, evt.target.value)}
-                    />
-                  <Button onClick={() => this.removeFromCollection("method", index)} icon="cancel"/>
-                  </CollectionItem>
-                );
-              })}
-              <Button onClick={() => this.addToCollection("method")}><Icon>add</Icon></Button>
-            </Collection>
+            <EditList
+              items={recipe.method}
+              title="Method"
+              editRecipeCollection={this.editRecipeCollection}
+              removeFromCollection={this.removeFromCollection}
+              addToCollection={this.addToCollection}
+            />
           </Col>
         </Row>
         <Row><Col s={10} offset="s2">
@@ -179,17 +162,6 @@ const getDataUri = (files, callback) => {
 EditRecipe.propTypes = {
   recipe: PropTypes.object.isRequired
 };
-
-EditRecipe.defaultProps = {
-  recipe: {
-    name: "",
-    description: "",
-    tags: [],
-    method: [""],
-    ingredients: [""],
-    id: uuid()
-  }
-}
 
 const wrap = connect();
 export default wrap(EditRecipe);

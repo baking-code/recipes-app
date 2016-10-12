@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { connect } from "react-redux";
+import { v4 as uuid } from "node-uuid";
 
 import EditRecipe from "./EditRecipe.jsx";
 import ViewRecipe from "./ViewRecipe.jsx";
@@ -21,11 +22,20 @@ Recipe.propTypes = {
   isEdit: PropTypes.bool
 };
 
+const DEFAULT_RECIPE = {
+  name: "",
+  description: "",
+  tags: [],
+  method: [""],
+  ingredients: [""],
+  id: uuid()
+};
+
 function mapStateToProps(state, ownProps) {
   const recipes = state.recipes.toJS() || {};
   const { id } = ownProps.routeParams;
   // should be undefined if new
-  const activeRecipe = recipes[id];
+  const activeRecipe = recipes[id] || DEFAULT_RECIPE;
   return {
     recipe: activeRecipe,
     isEdit: state.editMode

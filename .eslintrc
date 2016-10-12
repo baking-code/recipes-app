@@ -29,7 +29,7 @@
   "parserOptions": {
     "ecmaFeatures": {
         "jsx": true,
-        spread: true
+        "spread": true
     }
   },
   "plugins": [
