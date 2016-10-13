@@ -5,7 +5,7 @@ import { withRouter } from "react-router";
 
 import { Row, Col, Collection, CollectionItem, Button } from "react-materialize";
 
-import { toggleEditMode } from "../actions";
+import { toggleEditMode, editActiveRecipeAction } from "../actions";
 
 class RecipeList extends React.Component {
 
@@ -18,7 +18,10 @@ class RecipeList extends React.Component {
               {_.map(this.props.recipes, (recipe) => {
                 return (
                   <CollectionItem
-                    onClick={() => this.props.router.push({ pathname: `/${recipe.id}` })}
+                    onClick={() => {
+                      this.props.router.push({ pathname: "/edit" });
+                      this.props.dispatch(editActiveRecipeAction(recipe));
+                    }}
                     key={recipe.id}
                   >
                     {recipe.name}
@@ -34,7 +37,11 @@ class RecipeList extends React.Component {
           className="purple darken-1"
           large
           style={{ bottom: "25px", right: "24px", position: "absolute" }}
-          onClick={() => { this.props.dispatch(toggleEditMode()); this.props.router.push({ pathname: "/new" }); }}
+          onClick={() => {
+            this.props.dispatch(toggleEditMode());
+            this.props.router.push({ pathname: "/new" });
+            this.props.dispatch(editActiveRecipeAction());
+          }}
         />
       </div>
     );

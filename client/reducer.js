@@ -1,7 +1,7 @@
 import { Map } from "immutable";
 import { v4 as uuid } from "node-uuid";
 
-import { ADD_RECIPE, REMOVE_RECIPE, EDIT_RECIPE, LOAD_RECIPES, TOGGLE_EDIT_MODE } from "./actions";
+import { ADD_RECIPE, REMOVE_RECIPE, EDIT_RECIPE, LOAD_RECIPES, TOGGLE_EDIT_MODE, EDIT_ACTIVE_RECIPE } from "./actions";
 
 export const INITIAL_STATE = Map();
 
@@ -44,5 +44,22 @@ export function editReducer(state = false, action) {
       return !state;
     default:
       return state;
+  }
+}
+
+const DEFAULT_RECIPE = {
+  name: "",
+  description: "",
+  tags: [],
+  method: [""],
+  ingredients: [""],
+  id: uuid()
+};
+
+export function activeRecipeReducer(state = DEFAULT_RECIPE, action) {
+  if (action.type === EDIT_ACTIVE_RECIPE) {
+    return action.recipe;
+  } else {
+    return state;
   }
 }

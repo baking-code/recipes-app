@@ -7,7 +7,7 @@ import Dropzone from "react-dropzone";
 import { Card, Col, Row, Collection, CollectionItem, Icon, Button } from "react-materialize";
 import Tags from "./Tags";
 import EditList from "./EditList";
-import { editRecipeAction, toggleEditMode } from "../actions";
+import { editActiveRecipeAction, editRecipeAction, toggleEditMode } from "../actions";
 
 
 class EditRecipe extends Component {
@@ -22,7 +22,7 @@ class EditRecipe extends Component {
 
   editRecipe(recipe) {
     const { dispatch } = this.props;
-    dispatch(editRecipeAction(recipe));
+    dispatch(editActiveRecipeAction(recipe));
   }
 
   editRecipeCollection(collectionName, index, value) {
@@ -64,6 +64,11 @@ class EditRecipe extends Component {
       image: ""
     };
     this.editRecipe(recipe);
+  }
+
+  saveRecipe(recipe) {
+    const { dispatch } = this.props;
+    dispatch(editRecipeAction(recipe));
   }
 
   updateTags(tags) {
@@ -131,7 +136,7 @@ class EditRecipe extends Component {
           className="lime lighten-1"
           large
           style={{ bottom: "90px", right: "24px", position: "absolute" }}
-          onClick={() => {this.editRecipe(recipe); toggleEditMode(); }}
+          onClick={() => {this.saveRecipe(recipe); toggleEditMode(); }}
         />
         <Button
           floating

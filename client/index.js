@@ -5,7 +5,7 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import io from "socket.io-client";
 
-import { recipesReducer, editReducer } from "./reducer";
+import { recipesReducer, editReducer, activeRecipeReducer } from "./reducer";
 import { loadRecipesAction } from "./actions";
 import remoteActionMiddleware from "./remoteActionMiddleware";
 import App from "./app/App";
@@ -22,7 +22,8 @@ socket.on("state", state => {
 const store = createStore(
   combineReducers({
     recipes: recipesReducer,
-    editMode: editReducer
+    editMode: editReducer,
+    activeRecipe: activeRecipeReducer
   }),
   applyMiddleware(remoteActionMiddleware(socket))
 );
@@ -32,7 +33,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <Route path="recipes" component={RecipeList} />
-        <Route path="(:id)" component={Recipe} />
+        <Route path="edit" component={Recipe} />
       </Route>
     </Router>
   </Provider>,
