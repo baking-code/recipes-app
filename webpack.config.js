@@ -43,6 +43,14 @@ module.exports = {
         query: { presets: ["es2015", "react"] }
       },
       {
+        test: /fontawesome.+\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=10000&minetype=application/font-woff"
+      },
+      {
+        test: /fontawesome.+\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
+      },
+      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract("style-loader", sassLoaders.join("!"))
       }

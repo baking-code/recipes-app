@@ -152,15 +152,15 @@ class EditRecipe extends Component {
 }
 
 const getDataUri = (files, callback) => {
-    if (files && files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-           callback(e.target.result)
-      };
-      reader.onerror = function(e) {
-           callback(null);
-      };
-      reader.readAsDataURL(files[0]);
+  if (files && files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+         callback(e.target.result)
+    };
+    reader.onerror = function(e) {
+         callback(null);
+    };
+    reader.readAsDataURL(files[0]);
   }
 }
 
