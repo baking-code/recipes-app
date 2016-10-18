@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import { Card, Chip, Button } from "react-materialize";
+import { Card, Chip } from "react-materialize";
+import FloatingActionButton from "material-ui/FloatingActionButton";
+import ContentCreate from "material-ui/svg-icons/content/create";
+
 import { Row, Col } from "react-flexbox-grid";
 
 import List from "./List";
@@ -35,14 +38,13 @@ class ViewRecipe extends Component {
         <Row >
           <Col sm={10} smOffset={2}>{_.map(recipe.tags, tag => <Chip key={tag.id}>{tag.text}</Chip>)}</Col>
           </Row>
-          <Button
-            floating
-            icon="mode_edit"
-            className="lime lighten-1"
-            large
+          <FloatingActionButton
             style={{ bottom: "25px", right: "24px", position: "absolute" }}
+            backgroundColor="#d4e157"
             onClick={() => { dispatch(toggleEditMode()); }}
-          />
+          >
+          <ContentCreate/>
+          </FloatingActionButton>
       </div>
     );
   }

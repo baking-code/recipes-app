@@ -7,6 +7,10 @@ import { reducer as searchReducer, reduxSearch } from "redux-search";
 import { Provider } from "react-redux";
 import io from "socket.io-client";
 import { composeWithDevTools } from "redux-devtools-extension";
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import injectTapEventPlugin from "react-tap-event-plugin";
+injectTapEventPlugin();
+
 
 import { recipesReducer, editReducer, activeRecipeReducer } from "./reducer";
 import { loadRecipesAction } from "./actions";
@@ -56,13 +60,15 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <Route path="recipes" component={RecipeList} />
-        <Route path="edit" component={Recipe} />
-      </Route>
-    </Router>
-  </Provider>,
+  <MuiThemeProvider>
+    <Provider store={store}>
+      <Router history={browserHistory}>
+        <Route path="/" component={App}>
+          <Route path="recipes" component={RecipeList} />
+          <Route path="edit" component={Recipe} />
+        </Route>
+      </Router>
+    </Provider>
+  </MuiThemeProvider>,
   document.getElementById("app")
 );

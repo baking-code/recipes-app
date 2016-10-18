@@ -4,7 +4,11 @@ import { v4 as uuid } from "node-uuid";
 import { connect } from "react-redux";
 import Dropzone from "react-dropzone";
 
-import { Card, Collection, CollectionItem, Icon, Button } from "react-materialize";
+import { Card, Collection, CollectionItem, Icon } from "react-materialize";
+import FloatingActionButton from "material-ui/FloatingActionButton";
+import Cancel from "material-ui/svg-icons/navigation/cancel";
+import Save from "material-ui/svg-icons/content/save";
+
 import { Row, Col } from "react-flexbox-grid";
 
 import Tags from "./Tags";
@@ -82,7 +86,7 @@ class EditRecipe extends Component {
   render() {
     const { recipe, dispatch } = this.props;
     const imageArea = recipe.image ?
-      (<div><img src={recipe.image} width={250} height={250}/><Button onClick={() => this.removeImage()} icon="cancel"/></div>) :
+      (<div><img src={recipe.image} width={250} height={250}/><Cancel onClick={() => this.removeImage()} icon="cancel"/></div>) :
       (<Dropzone accept="image/*" onDrop={(f) => this.addImage(f)}><Icon>plus</Icon></Dropzone>);
 
     return (
@@ -132,22 +136,20 @@ class EditRecipe extends Component {
         <Row><Col sm={10} smOffset={2}>
           <Tags tags={recipe.tags} updateTags={(tags) => this.updateTags(tags)}/>
         </Col></Row>
-        <Button
-          floating
-          icon="save"
-          className="lime lighten-1"
-          large
+        <FloatingActionButton
           style={{ bottom: "90px", right: "24px", position: "absolute" }}
+          backgroundColor="#8E24AA"
           onClick={() => {this.saveRecipe(recipe); toggleEditMode(); }}
-        />
-        <Button
-          floating
-          icon="cancel"
-          className="purple darken-1"
-          large
+          >
+          <Save/>
+          </FloatingActionButton>
+        <FloatingActionButton
           style={{ bottom: "25px", right: "24px", position: "absolute" }}
+          backgroundColor="#d4e157"
           onClick={() => dispatch(toggleEditMode())}
-        />
+          >
+          <Cancel/>
+          </FloatingActionButton>
       </div>
     );
   }
