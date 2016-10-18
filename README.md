@@ -1,13 +1,16 @@
 # recipes-app
 
 Simple React app to show, edit and search for recipes. Redux state stored on a
-node app, accessed via express.
+node app, using sockets.
 
-### TODO
-* Mock recipes file
-* Serve store eagerly, maybe use localstorage
-* Each display item should contain a "content editable"
-  https://github.com/lovasoa/react-contenteditable
-  
-  * Text area
-  * Each collection item should contain one
+To run the server, which currently contains a small amount of demo data:
+```
+npm run server
+```
+
+Then running the client side webpack build:
+```
+npm start
+```
+
+Then navigate to `localhost:4441/recipes`. 
