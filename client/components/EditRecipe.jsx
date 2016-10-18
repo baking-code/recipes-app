@@ -4,7 +4,9 @@ import { v4 as uuid } from "node-uuid";
 import { connect } from "react-redux";
 import Dropzone from "react-dropzone";
 
-import { Card, Col, Row, Collection, CollectionItem, Icon, Button } from "react-materialize";
+import { Card, Collection, CollectionItem, Icon, Button } from "react-materialize";
+import { Row, Col } from "react-flexbox-grid";
+
 import Tags from "./Tags";
 import EditList from "./EditList";
 import { editActiveRecipeAction, editRecipeAction, toggleEditMode } from "../actions";
@@ -86,7 +88,7 @@ class EditRecipe extends Component {
     return (
       <div className="lime lighten-4">
         <Row>
-          <Col s={6} offset="s2">
+          <Col sm={6} smOffset={2}>
             <Card
               title={
                 <input
@@ -103,12 +105,12 @@ class EditRecipe extends Component {
               />
             </Card>
           </Col>
-          <Col s={4} >
+          <Col sm={4} >
             {imageArea}
           </Col>
         </Row>
         <Row>
-          <Col s={3} offset="s2">
+          <Col sm={3} smOffset={2}>
             <EditList
               items={recipe.ingredients}
               title="Ingredients"
@@ -117,7 +119,7 @@ class EditRecipe extends Component {
               addToCollection={this.addToCollection}
             />
           </Col>
-          <Col s={5}>
+          <Col sm={5}>
             <EditList
               items={recipe.method}
               title="Method"
@@ -127,7 +129,7 @@ class EditRecipe extends Component {
             />
           </Col>
         </Row>
-        <Row><Col s={10} offset="s2">
+        <Row><Col sm={10} smOffset={2}>
           <Tags tags={recipe.tags} updateTags={(tags) => this.updateTags(tags)}/>
         </Col></Row>
         <Button

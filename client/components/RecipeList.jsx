@@ -5,7 +5,8 @@ import { withRouter } from "react-router";
 import { createSelector } from "reselect";
 import { createSearchAction, getSearchSelectors } from "redux-search";
 
-import { Row, Col, Collection, CollectionItem, Button } from "react-materialize";
+import { Collection, CollectionItem, Button } from "react-materialize";
+import { Row, Col } from "react-flexbox-grid";
 
 import { toggleEditMode, editActiveRecipeAction } from "../actions";
 
@@ -14,9 +15,9 @@ class RecipeList extends React.Component {
   render() {
     return (
       <div>
-        <Row>
-          <Col s={6} className="grid-example" offset="s3">
-            <input
+        <Row >
+          <Col sm={6} className="grid-example" smOffset={3}>
+	    <input
               onChange={event => {
                 this.props.dispatch(this.props.searchRecipes(event.target.value));
               }}
@@ -25,7 +26,7 @@ class RecipeList extends React.Component {
           <Collection className="lime lighten-4 black-text">
             {_.map(this.props.ids, (id) => {
               const recipe = this.props.recipes[id];
-              return (
+		return (
                   <CollectionItem
                     onClick={() => {
                       this.props.router.push({ pathname: "/edit" });
