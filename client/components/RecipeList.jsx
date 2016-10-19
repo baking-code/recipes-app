@@ -2,6 +2,8 @@ import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
+import { createSelector } from "reselect";
+import { createSearchAction, getSearchSelectors } from "redux-search";
 
 import { Row, Col, Collection, CollectionItem, Button } from "react-materialize";
 
@@ -14,9 +16,16 @@ class RecipeList extends React.Component {
       <div>
         <Row>
           <Col s={6} className="grid-example" offset="s3">
-            <Collection className="lime lighten-4 black-text">
-              {_.map(this.props.recipes, (recipe) => {
-                return (
+            <input
+              onChange={event => {
+                this.props.dispatch(this.props.searchRecipes(event.target.value));
+              }}
+              placeholder='Search..'
+            />
+          <Collection className="lime lighten-4 black-text">
+            {_.map(this.props.ids, (id) => {
+              const recipe = this.props.recipes[id];
+              return (
                   <CollectionItem
                     onClick={() => {
                       this.props.router.push({ pathname: "/edit" });
@@ -27,7 +36,7 @@ class RecipeList extends React.Component {
                     {recipe.name}
                   </CollectionItem>
                 );
-              })}
+            })}
             </Collection>
           </Col>
         </Row>
@@ -48,9 +57,31 @@ class RecipeList extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { recipes: state.recipes.toJS() || {} };
-}
 
-const wrap = connect(mapStateToProps);
+const recipes = state => state.recipes.toJS();
+
+const {
+  text, // search text
+  result // ids
+} = getSearchSelectors({
+  resourceName: "recipes",
+  resourceSelector: (resourceName, state) => state[resourceName]
+});
+
+const mapStateToProps = createSelector(
+  [result, recipes, text],
+  /* eslint-disable no-shadow */
+  (ids, recipes, searchText) => ({
+    ids,
+    recipes,
+    searchText
+  })
+);
+
+const mapDispatchToProps = (dispatch) => ({
+  searchRecipes: createSearchAction("recipes"),
+  dispatch });
+
+const wrap = connect(mapStateToProps, mapDispatchToProps);
+
 export default withRouter(wrap(RecipeList));
