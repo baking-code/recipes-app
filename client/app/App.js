@@ -8,9 +8,9 @@ class App extends Component {
     console.log("Rendered");
     return (
       <div>
-        <nav>
-          <div className="nav-wrapper purple darken-1">
-            <a href="/recipes" className="brand-logo">Recipes</a>
+        <nav className="App" style={{ backgroundColor: "#8E24AA" }}>
+          <div>
+            <a href="/recipes" className="App__title">Recipes</a>
           </div>
         </nav>
         <main>

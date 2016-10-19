@@ -1,9 +1,13 @@
-.button-collapse {
-  display: none;
+.App {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  display: block;
+  height: 64px;
+line-height: 64px;
 }
 
-.brand-logo {
+.App__title {
   left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
+  right: auto;
+  position: absolute;
+  font-size: xx-large;
 }
