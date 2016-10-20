@@ -5,7 +5,6 @@ import { withRouter } from "react-router";
 import { createSelector } from "reselect";
 import { createSearchAction, getSearchSelectors } from "redux-search";
 
-import { Collection, CollectionItem } from "react-materialize";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import AddIcon from "material-ui/svg-icons/content/add";
 
@@ -13,6 +12,7 @@ import AddIcon from "material-ui/svg-icons/content/add";
 import { Row, Col } from "react-flexbox-grid";
 
 import { toggleEditMode, editActiveRecipeAction } from "../actions";
+import Card from "./presentational/Card";
 
 class RecipeList extends React.Component {
 
@@ -27,11 +27,10 @@ class RecipeList extends React.Component {
               }}
               placeholder='Search..'
             />
-          <Collection className="lime lighten-4 black-text">
             {_.map(this.props.ids, (id) => {
               const recipe = this.props.recipes[id];
               return (
-                  <CollectionItem
+                  <Card
                     onClick={() => {
                       this.props.router.push({ pathname: "/edit" });
                       this.props.dispatch(editActiveRecipeAction(recipe));
@@ -39,10 +38,9 @@ class RecipeList extends React.Component {
                     key={recipe.id}
                   >
                     {recipe.name}
-                  </CollectionItem>
+                  </Card>
                 );
             })}
-            </Collection>
           </Col>
         </Row>
         <FloatingActionButton
