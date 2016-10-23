@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import { Card, Chip } from "react-materialize";
+import { Chip } from "react-materialize";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentCreate from "material-ui/svg-icons/content/create";
 
@@ -10,6 +10,9 @@ import { Row, Col } from "react-flexbox-grid";
 
 import List from "./List";
 import { toggleEditMode } from "../actions";
+import Card from "./presentational/Card";
+import { Input, InputText } from "./presentational/Input";
+
 
 class ViewRecipe extends Component {
 
@@ -19,8 +22,9 @@ class ViewRecipe extends Component {
       <div>
         <Row >
           <Col sm={6} smOffset={2}>
-            <Card title={recipe.name} >
-              {recipe.description}
+            <Card>
+              <Input disabled title value={recipe.name}/>
+              <InputText disabled value={recipe.description}/>
             </Card>
           </Col>
           <Col sm={4} >
