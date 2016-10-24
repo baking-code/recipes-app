@@ -4,7 +4,7 @@ import { v4 as uuid } from "node-uuid";
 import { connect } from "react-redux";
 import Dropzone from "react-dropzone";
 
-import { Card, Collection, CollectionItem, Icon } from "react-materialize";
+import { Collection, CollectionItem, Icon } from "react-materialize";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import Cancel from "material-ui/svg-icons/navigation/cancel";
 import Save from "material-ui/svg-icons/content/save";
@@ -13,6 +13,9 @@ import { Row, Col } from "react-flexbox-grid";
 
 import Tags from "./Tags";
 import EditList from "./EditList";
+import { Input, InputText } from "./presentational/Input";
+
+import Card from "./presentational/Card";
 import { editActiveRecipeAction, editRecipeAction, toggleEditMode } from "../actions";
 
 
@@ -90,22 +93,21 @@ class EditRecipe extends Component {
       (<Dropzone accept="image/*" onDrop={(f) => this.addImage(f)}><Icon>plus</Icon></Dropzone>);
 
     return (
-      <div className="lime lighten-4">
+      <div>
         <Row>
           <Col sm={6} smOffset={2}>
-            <Card
-              title={
-                <input
-                  defaultValue={recipe.name}
-                  placeholder="Enter title"
-                  onChange={(evt) => (this.editRecipe({...recipe, name: evt.target.value }))}
-                />
-              }
-            >
-              <input
+            <Card>
+              <Input
+                title
+                defaultValue={recipe.name}
+                placeholder="Enter title"
+                onChange={(evt) => (this.editRecipe({...recipe, name: evt.target.value }))}
+              />
+              <InputText
                 defaultValue={recipe.description}
                 placeholder="Enter description"
                 onChange={(evt) => (this.editRecipe({...recipe, description: evt.target.value }))}
+                rows={4}
               />
             </Card>
           </Col>
