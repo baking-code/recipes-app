@@ -1,16 +1,14 @@
 import React from "react";
 import _ from "lodash";
-import { Button, Icon } from "react-materialize";
 import { Input } from "./presentational/Input";
 import Card from "./presentational/Card";
-import Cancel from "./presentational/Cancel";
+import { CancelButton, AddButton } from "./presentational/Buttons";
 
 
 export default ({ items, title, editRecipeCollection, removeFromCollection, addToCollection }) => (
   <div>
     <h4>{title}</h4>
-    {_.map(items, (item, index) => {
-      return (
+    {_.map(items, (item, index) => (
         <Card
           key={`ing-${index}`}
         >
@@ -19,10 +17,10 @@ export default ({ items, title, editRecipeCollection, removeFromCollection, addT
           placeholder="Enter value"
           onChange={(evt) => editRecipeCollection(title.toLowerCase(), index, evt.target.value)}
         />
-      <Cancel onClick={() => removeFromCollection(title.toLowerCase(), index)} translate={(-5, 0)}/>
+      <CancelButton onClick={() => removeFromCollection(title.toLowerCase(), index)}/>
       </Card>
-      );
-    })}
-    <Button onClick={() => addToCollection(title.toLowerCase())}><Icon>add</Icon></Button>
+      )
+    )}
+    <AddButton onClick={() => addToCollection(title.toLowerCase())}/>
   </div>
 );
