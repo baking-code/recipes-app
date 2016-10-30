@@ -11,7 +11,7 @@ function inputProps(props) {
     border-bottom: 1px solid ${props.disabled ? "transparent" : shaded} !important;
     border-radius: 3px;
     height: 3rem;
-    width: 90% !important;
+    width: ${props.listItem ? "90%" : "100%"} !important;
     margin: ${props.title ? "0 0 5px 0" : "0"} !important;
     transition-property: all;
     transition-duration: 0.3s;

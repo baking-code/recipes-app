@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import { Chip } from "react-materialize";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import ContentCreate from "material-ui/svg-icons/content/create";
 
@@ -12,6 +11,7 @@ import List from "./List";
 import { toggleEditMode } from "../actions";
 import Card from "./presentational/Card";
 import { Input, InputText } from "./presentational/Input";
+import Tag from "./presentational/Tag";
 
 
 class ViewRecipe extends Component {
@@ -39,9 +39,9 @@ class ViewRecipe extends Component {
             <List items={recipe.method} title="Method" />
           </Col>
         </Row>
-        <Row >
-          <Col sm={10} smOffset={2}>{_.map(recipe.tags, tag => <Chip key={tag.id}>{tag.text}</Chip>)}</Col>
-          </Row>
+        <Row style={{ marginTop: "20px" }}>
+          <Col sm={10} smOffset={2}>{_.map(recipe.tags, tag => <Tag key={tag.id}>{tag.text}</Tag>)}</Col>
+        </Row>
           <FloatingActionButton
             style={{ bottom: "25px", right: "24px", position: "absolute" }}
             backgroundColor="#d4e157"

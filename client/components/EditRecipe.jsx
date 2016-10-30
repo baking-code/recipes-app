@@ -4,7 +4,6 @@ import { v4 as uuid } from "node-uuid";
 import { connect } from "react-redux";
 import Dropzone from "react-dropzone";
 
-import { Collection, CollectionItem, Icon } from "react-materialize";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import Cancel from "material-ui/svg-icons/navigation/cancel";
 import Save from "material-ui/svg-icons/content/save";

@@ -5,7 +5,7 @@ import Card from "./presentational/Card";
 import { CancelButton, AddButton } from "./presentational/Buttons";
 
 
-export default ({ items, title, editRecipeCollection, removeFromCollection, addToCollection, disabled }) => (
+export default ({ items, title, editRecipeCollection, removeFromCollection, addToCollection }) => (
   <div>
     <h4>{title}</h4>
     {_.map(items, (item, index) => (
@@ -13,7 +13,7 @@ export default ({ items, title, editRecipeCollection, removeFromCollection, addT
           key={`ing-${index}`}
         >
         <Input
-          {...disabled}
+          listItem
           defaultValue={item}
           placeholder="Enter value"
           onChange={(evt) => editRecipeCollection(title.toLowerCase(), index, evt.target.value)}

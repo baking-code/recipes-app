@@ -13,6 +13,7 @@ import { Row, Col } from "react-flexbox-grid";
 
 import { toggleEditMode, editActiveRecipeAction } from "../actions";
 import Card from "./presentational/Card";
+import { Input } from "./presentational/Input";
 
 class RecipeList extends React.Component {
 
@@ -21,12 +22,11 @@ class RecipeList extends React.Component {
       <div>
         <Row >
           <Col sm={6} className="grid-example" smOffset={3}>
-            <input
+            <Input
               onChange={event => {
                 this.props.dispatch(this.props.searchRecipes(event.target.value));
               }}
               placeholder='Search..'
-              title
             />
             {_.map(this.props.ids, (id) => {
               const recipe = this.props.recipes[id];
