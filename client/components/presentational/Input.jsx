@@ -21,7 +21,7 @@ function inputProps(props) {
     outline: none;
 
     &:hover {
-      pointer: ${props.disabled ? "normal" : "pointer"};
+      cursor: ${props.disabled ? "normal" : "pointer"};
     }
     &:focus {
       box-shadow: 0 2px 0 0 ${primary} !important;

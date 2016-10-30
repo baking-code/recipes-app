@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { WithContext as ReactTags } from "react-tag-input";
 
+import "./styles/Tags.scss";
+
 class Tags extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +33,7 @@ class Tags extends Component {
 
   render() {
     const { tags, suggestions } = this.state;
+
     return (
       <div>
         <ReactTags
