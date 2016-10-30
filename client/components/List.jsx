@@ -1,17 +1,22 @@
 import React from "react";
 import _ from "lodash";
-import { v4 as uuid } from "node-uuid";
-import { Collection, CollectionItem } from "react-materialize";
+import { Input } from "./presentational/Input";
+import Card from "./presentational/Card";
+
 
 export default ({ items, title }) => (
-  <Collection header={title}>
-    {_.map(items, (item) => (
-        <CollectionItem
-          key={uuid()}
+  <div>
+    <h4>{title}</h4>
+    {_.map(items, (item, index) => (
+        <Card
+          key={`ing-${index}`}
         >
-          {item}
-        </CollectionItem>
+        <Input
+          disabled
+          value={item}
+        />
+      </Card>
       )
     )}
-  </Collection>
+  </div>
 );

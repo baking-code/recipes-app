@@ -22,7 +22,7 @@ class ViewRecipe extends Component {
       <div>
         <Row >
           <Col sm={6} smOffset={2}>
-            <Card>
+            <Card title>
               <Input disabled title value={recipe.name}/>
               <InputText disabled value={recipe.description}/>
             </Card>

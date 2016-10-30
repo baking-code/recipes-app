@@ -26,11 +26,13 @@ class RecipeList extends React.Component {
                 this.props.dispatch(this.props.searchRecipes(event.target.value));
               }}
               placeholder='Search..'
+              title
             />
             {_.map(this.props.ids, (id) => {
               const recipe = this.props.recipes[id];
               return (
                   <Card
+                    title
                     onClick={() => {
                       this.props.router.push({ pathname: "/edit" });
                       this.props.dispatch(editActiveRecipeAction(recipe));

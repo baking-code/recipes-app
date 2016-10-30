@@ -12,7 +12,7 @@ function inputProps(props) {
     border-radius: 3px;
     height: 3rem;
     width: 90% !important;
-    margin: 0 0 5px 0;
+    margin: ${props.title ? "0 0 5px 0" : "0"} !important;
     transition-property: all;
     transition-duration: 0.3s;
     transition-timing-function: initial;

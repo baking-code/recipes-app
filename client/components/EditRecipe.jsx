@@ -96,7 +96,7 @@ class EditRecipe extends Component {
       <div>
         <Row>
           <Col sm={6} smOffset={2}>
-            <Card>
+            <Card title>
               <Input
                 title
                 defaultValue={recipe.name}
