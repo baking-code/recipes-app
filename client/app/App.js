@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
+import styled from "styled-components";
+import { primary } from "../components/constants/colours";
+
 import "node_modules/roboto-npm-webfont/style.scss";
-
-
-
-import "./App.scss";
 
 class App extends Component {
 
@@ -12,11 +11,9 @@ class App extends Component {
     console.log("Rendered");
     return (
       <div>
-        <nav className="App" style={{ backgroundColor: "#8E24AA" }}>
-          <div>
-            <Link to={"/recipes"} className="App__title">Recipes</Link>
-          </div>
-        </nav>
+        <Nav>
+          <Title to={"/recipes"}>Recipes</Title>
+        </Nav>
         <main>
           {this.props.children}
         </main>
@@ -24,5 +21,22 @@ class App extends Component {
     );
   }
 }
+
+const Nav = styled.nav`
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+  display: block;
+  height: 64px;
+  line-height: 64px;
+  background-color: ${primary};
+`;
+
+const Title = styled(Link)`
+  left: 50%;
+  right: auto;
+  position: absolute;
+  font-size: xx-large;
+  color: #FFF;
+  text-decoration: none;
+`;
 
 export default App;
