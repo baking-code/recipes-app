@@ -1,3 +1,7 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
 .App {
   box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
   display: block;
@@ -10,4 +14,6 @@ line-height: 64px;
   right: auto;
   position: absolute;
   font-size: xx-large;
+  color: #FFF;
+  text-decoration: none;
 }

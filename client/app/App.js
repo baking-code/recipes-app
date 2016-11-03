@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router";
+import "node_modules/roboto-npm-webfont/style.scss";
+
+
 
 import "./App.scss";
 
@@ -10,7 +14,7 @@ class App extends Component {
       <div>
         <nav className="App" style={{ backgroundColor: "#8E24AA" }}>
           <div>
-            <a href="/recipes" className="App__title">Recipes</a>
+            <Link to={"/recipes"} className="App__title">Recipes</Link>
           </div>
         </nav>
         <main>

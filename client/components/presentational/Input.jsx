@@ -6,6 +6,7 @@ import { primary, shaded } from "../constants/colours";
 function inputProps(props) {
   return `
     font-size: ${props.title ? "3em !important" : "1em"};
+    background-color: transparent;
     color: black !important;
     border: none;
     border-bottom: 1px solid ${props.disabled ? "transparent" : shaded} !important;
