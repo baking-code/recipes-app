@@ -6,8 +6,8 @@ import Add from "material-ui/svg-icons/content/add-circle";
 import { primary, secondary } from "../constants/colours";
 
 export const CancelButton = styled(Cancel)`
-  height: 18px !important;
-  width: 18px !important;
+  height: ${props => props.image ? "inherit" : "18px !important"};
+  width:  ${props => props.image ? "inherit" : "18px !important"};
   fill: ${primary} !important;
   cursor: pointer !important;
   transform: translateY(4px) !important;

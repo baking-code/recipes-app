@@ -11,6 +11,7 @@ import List from "./List";
 import { toggleEditMode } from "../actions";
 import Card from "./presentational/Card";
 import { Input, InputText } from "./presentational/Input";
+import { ImageArea } from "./presentational/Image";
 import Tag from "./presentational/Tag";
 
 
@@ -21,14 +22,14 @@ class ViewRecipe extends Component {
     return (
       <div>
         <Row >
-          <Col sm={6} smOffset={2}>
+          <Col sm={5} smOffset={2}>
             <Card title>
               <Input disabled title value={recipe.name}/>
               <InputText disabled value={recipe.description}/>
             </Card>
           </Col>
-          <Col sm={4} >
-            <img src={recipe.image} width={250} height={250}/>
+          <Col sm={3} >
+            <ImageArea><img src={recipe.image} width={240} height={200}/></ImageArea>
           </Col>
         </Row>
         <Row >

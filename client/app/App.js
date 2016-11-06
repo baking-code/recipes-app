@@ -28,6 +28,7 @@ const Nav = styled.nav`
   height: 64px;
   line-height: 64px;
   background-color: ${primary};
+  margin-bottom: 20px
 `;
 
 const Title = styled(Link)`

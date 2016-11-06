@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from "react";
 import _ from "lodash";
 import { v4 as uuid } from "node-uuid";
 import { connect } from "react-redux";
-import Dropzone from "react-dropzone";
 
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import Cancel from "material-ui/svg-icons/navigation/cancel";
+import AddIcon from "material-ui/svg-icons/content/add";
 import Save from "material-ui/svg-icons/content/save";
 
 import { Row, Col } from "react-flexbox-grid";
@@ -13,6 +13,7 @@ import { Row, Col } from "react-flexbox-grid";
 import Tags from "./Tags";
 import EditList from "./EditList";
 import { Input, InputText } from "./presentational/Input";
+import { Image } from "./presentational/Image";
 
 import Card from "./presentational/Card";
 import { editActiveRecipeAction, editRecipeAction, toggleEditMode } from "../actions";
@@ -53,7 +54,6 @@ class EditRecipe extends Component {
         ...this.props.recipe,
         image: encoded
       };
-      debugger;
       this.editRecipe(recipe);
     })
   }
@@ -87,14 +87,11 @@ class EditRecipe extends Component {
 
   render() {
     const { recipe, dispatch } = this.props;
-    const imageArea = recipe.image ?
-      (<div><img src={recipe.image} width={250} height={250}/><Cancel onClick={() => this.removeImage()} icon="cancel"/></div>) :
-      (<Dropzone accept="image/*" onDrop={(f) => this.addImage(f)}><Icon>plus</Icon></Dropzone>);
 
     return (
       <div>
         <Row>
-          <Col sm={6} smOffset={2}>
+          <Col sm={5} smOffset={2}>
             <Card title>
               <Input
                 title
@@ -110,8 +107,12 @@ class EditRecipe extends Component {
               />
             </Card>
           </Col>
-          <Col sm={4} >
-            {imageArea}
+          <Col sm={3}>
+            <Image
+              recipe={recipe}
+              removeImage={() => this.removeImage()}
+              addImage={(image) => this.addImage(image)}
+            />
           </Col>
         </Row>
         <Row>
