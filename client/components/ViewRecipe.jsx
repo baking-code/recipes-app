@@ -21,27 +21,27 @@ class ViewRecipe extends Component {
     const { recipe, dispatch } = this.props;
     return (
       <div>
-        <Row >
-          <Col sm={5} smOffset={2}>
+        <Row center="lg">
+          <Col lg={4}>
             <Card title>
               <Input disabled title value={recipe.name}/>
               <InputText disabled value={recipe.description}/>
             </Card>
           </Col>
-          <Col sm={3} >
+          <Col lg={3} >
             <ImageArea><img src={recipe.image} width={240} height={200}/></ImageArea>
           </Col>
         </Row>
-        <Row >
-          <Col sm={3} smOffset={2}>
+        <Row center="lg">
+          <Col lg={3}>
             <List items={recipe.ingredients} title="Ingredients" />
           </Col>
-          <Col sm={5}>
+          <Col lg={4}>
             <List items={recipe.method} title="Method" />
           </Col>
         </Row>
-        <Row style={{ marginTop: "20px" }}>
-          <Col sm={10} smOffset={2}>{_.map(recipe.tags, tag => <Tag key={tag.id}>{tag.text}</Tag>)}</Col>
+        <Row style={{ marginTop: "20px" }} center="lg">
+          <Col lg={7}>{_.map(recipe.tags, tag => <Tag key={tag.id}>{tag.text}</Tag>)}</Col>
         </Row>
           <FloatingActionButton
             style={{ bottom: "25px", right: "24px", position: "absolute" }}
