@@ -14,7 +14,7 @@ export default ({ items, title, editRecipeCollection, removeFromCollection, addT
         >
         <Input
           listItem
-          defaultValue={item}
+          value={item}
           placeholder="Enter value"
           onChange={(evt) => editRecipeCollection(title.toLowerCase(), index, evt.target.value)}
         />

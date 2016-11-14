@@ -95,7 +95,7 @@ class EditRecipe extends Component {
             <Card title>
               <Input
                 title
-                defaultValue={recipe.name}
+                value={recipe.name}
                 placeholder="Enter title"
                 onChange={(evt) => (this.editRecipe({...recipe, name: evt.target.value }))}
               />
