@@ -19,3 +19,12 @@ export const AddButton = styled(Add)`
   transform: translate(-4px, 4px) !important;
   float: right;
 `;
+
+export const RemoveImage = styled(Cancel)`
+  fill: ${primary} !important;
+  cursor: pointer !important;
+  transform: translateY(4px) !important;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+`;

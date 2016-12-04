@@ -3,15 +3,15 @@ import styled from "styled-components";
 
 import Dropzone from "react-dropzone";
 import Card from "./Card";
-import { CancelButton, AddButton } from "./Buttons";
+import { RemoveImage, AddButton } from "./Buttons";
 
 export const Image = (props) => {
   const { recipe } = props;
   return recipe.image ?
     (
       <ImageArea>
-        <CancelButton onClick={() => props.removeImage()} image/>
         <img src={recipe.image} width={240} height={200}/>
+        <RemoveImage onClick={() => props.removeImage()} />
       </ImageArea>
     ) :
     (
@@ -20,8 +20,8 @@ export const Image = (props) => {
           accept="image/*"
           onDrop={(f) => props.addImage(f)}
           style={{
-            "height": "204px",
-            "width": "100%"
+            "height": "200px",
+            "width": "240px"
           }}
         >
           <AddButton />

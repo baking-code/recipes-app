@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { shaded } from "../constants/colours";
 
 const Card = styled.div`
+  position: relative;
   background-color: #fff;
   max-width: 800px;
   align-items: center;
