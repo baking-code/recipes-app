@@ -90,8 +90,8 @@ class EditRecipe extends Component {
 
     return (
       <div>
-        <Row center="lg">
-          <Col lg={4}>
+        <Row center="xs">
+          <Col lg={4} xs={8}>
             <Card title>
               <Input
                 title
@@ -107,7 +107,7 @@ class EditRecipe extends Component {
               />
             </Card>
           </Col>
-          <Col lg={3}>
+          <Col lg={3} xs={4}>
             <Image
               recipe={recipe}
               removeImage={() => this.removeImage()}
@@ -115,8 +115,8 @@ class EditRecipe extends Component {
             />
           </Col>
         </Row>
-        <Row center="lg">
-          <Col lg={3}>
+        <Row center="xs">
+          <Col lg={3} xs={8}>
             <EditList
               items={recipe.ingredients}
               title="Ingredients"
@@ -125,7 +125,7 @@ class EditRecipe extends Component {
               addToCollection={this.addToCollection}
             />
           </Col>
-          <Col lg={4}>
+          <Col lg={4} cs={8}>
             <EditList
               items={recipe.method}
               title="Method"
@@ -135,7 +135,7 @@ class EditRecipe extends Component {
             />
           </Col>
         </Row>
-        <Row center="lg"><Col lg={7}>
+        <Row center="xs"><Col lg={7} xs={7}>
           <Tags tags={recipe.tags} updateTags={(tags) => this.updateTags(tags)}/>
         </Col></Row>
         <FloatingActionButton
