@@ -17,7 +17,6 @@ Then navigate to `localhost:4441/recipes`.
 
 ### TODO (for first release)
 
-* Improve mobile grid layout
 * Padding on non-editing collection items
 * Add duration somewhere in UI
 * Saving of store server-side

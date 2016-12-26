@@ -14,9 +14,11 @@ export const CancelButton = styled(Cancel)`
 `;
 
 export const AddButton = styled(Add)`
+  height: 20px !important;
+  width: 20px !important;
   fill: ${secondary} !important;
   cursor: pointer !important;
-  transform: translate(-4px, 4px) !important;
+  transform: translate(-16px, 4px) !important;
   float: right;
 `;
 

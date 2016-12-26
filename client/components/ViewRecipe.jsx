@@ -22,7 +22,7 @@ class ViewRecipe extends Component {
     return (
       <div>
         <Row center="xs">
-          <Col lg={4} xs={8}>
+          <Col lg={5} xs={8}>
             <Card title>
               <Input disabled title value={recipe.name}/>
               <InputText disabled value={recipe.description}/>
@@ -36,7 +36,7 @@ class ViewRecipe extends Component {
           <Col lg={3} xs={8}>
             <List items={recipe.ingredients} title="Ingredients" />
           </Col>
-          <Col lg={4} xs={8}>
+          <Col lg={5} xs={8}>
             <List items={recipe.method} title="Method" />
           </Col>
         </Row>

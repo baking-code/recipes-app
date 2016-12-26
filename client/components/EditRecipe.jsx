@@ -91,7 +91,7 @@ class EditRecipe extends Component {
     return (
       <div>
         <Row center="xs">
-          <Col lg={4} xs={8}>
+          <Col lg={5} xs={8}>
             <Card title>
               <Input
                 title
@@ -125,7 +125,7 @@ class EditRecipe extends Component {
               addToCollection={this.addToCollection}
             />
           </Col>
-          <Col lg={4} cs={8}>
+          <Col lg={5} xs={8}>
             <EditList
               items={recipe.method}
               title="Method"

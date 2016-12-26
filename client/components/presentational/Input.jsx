@@ -9,11 +9,11 @@ function inputProps(props) {
     background-color: transparent;
     color: black !important;
     border: none;
-    border-bottom: 1px solid ${props.disabled ? "transparent" : shaded} !important;
+    border-bottom: 1px solid ${props.disabled ? "transparent" : shaded};
     border-radius: 3px;
     height: 3rem;
-    width: ${props.listItem ? "90%" : "100%"} !important;
-    margin: ${props.title ? "0 0 5px 0" : "0"} !important;
+    width: ${props.listItem ? "calc(100% - 18px)" : "100%"};
+    margin: ${props.title ? "0 0 5px 0" : "0"};
     transition-property: all;
     transition-duration: 0.3s;
     transition-timing-function: initial;
@@ -25,7 +25,7 @@ function inputProps(props) {
       cursor: ${props.disabled ? "normal" : "pointer"};
     }
     &:focus {
-      box-shadow: 0 2px 0 0 ${primary} !important;
+      box-shadow: 0 2px 0 0 ${primary};
     }
 `;
 }
