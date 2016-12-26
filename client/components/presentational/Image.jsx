@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Dropzone from "react-dropzone";
 import Card from "./Card";
-import { RemoveImage, AddButton } from "./Buttons";
+import { CancelButton, AddButton } from "./Buttons";
 
 export const Image = (props) => {
   const { recipe } = props;
@@ -11,7 +11,7 @@ export const Image = (props) => {
     (
       <ImageArea>
         <img src={recipe.image} width={240} height={200}/>
-        <RemoveImage onClick={() => props.removeImage()} />
+        <CancelButton onClick={() => props.removeImage()} marginTop={4} marginRight={4} />
       </ImageArea>
     ) :
     (
@@ -24,7 +24,7 @@ export const Image = (props) => {
             "width": "240px"
           }}
         >
-          <AddButton />
+          <AddButton marginTop={4} marginRight={4} />
         </Dropzone>
       </ImageArea>
     );

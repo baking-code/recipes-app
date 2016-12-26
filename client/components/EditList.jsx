@@ -18,10 +18,10 @@ export default ({ items, title, editRecipeCollection, removeFromCollection, addT
           placeholder="Enter value"
           onChange={(evt) => editRecipeCollection(title.toLowerCase(), index, evt.target.value)}
         />
-      <CancelButton onClick={() => removeFromCollection(title.toLowerCase(), index)}/>
+      <CancelButton onClick={() => removeFromCollection(title.toLowerCase(), index)} marginTop={20} />
       </Card>
       )
     )}
-    <AddButton onClick={() => addToCollection(title.toLowerCase())}/>
+    <AddButton onClick={() => addToCollection(title.toLowerCase())} size={18} marginRight={16} />
   </div>
 );
