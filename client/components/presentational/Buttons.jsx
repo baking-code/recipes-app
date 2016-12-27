@@ -6,16 +6,16 @@ import Add from "material-ui/svg-icons/content/add-circle";
 import { primary, secondary } from "../constants/colours";
 
 const CancelButtonSvg = styled(Cancel)`
-  height: ${props => props.size ? props.size + 4 : 18}px !important;
-  width:  ${props => props.size ? props.size + 4 : 18}px !important;
+  height: ${props => (props.size ? props.size + 4 : 18)}px !important;
+  width:  ${props => (props.size ? props.size + 4 : 18)}px !important;
   fill: ${primary} !important;
   cursor: pointer !important;
   transform: translate(-2px, -2px) !important;
 `;
 
 const AddButtonSvg = styled(Add)`
-  height: ${props => props.size ? props.size + 4 : 18}px !important;
-  width:  ${props => props.size ? props.size + 4 : 18}px !important;
+  height: ${props => (props.size ? props.size + 4 : 18)}px !important;
+  width:  ${props => (props.size ? props.size + 4 : 18)}px !important;
   fill: ${secondary} !important;
   cursor: pointer !important;
   transform: translate(-2px, -2px) !important;

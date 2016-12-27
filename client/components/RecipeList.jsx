@@ -49,9 +49,9 @@ class RecipeList extends React.Component {
           style={{ bottom: "25px", right: "24px", position: "absolute" }}
           backgroundColor="#d4e157"
           onClick={() => {
-            this.props.dispatch(toggleEditMode());
-            this.props.router.push({ pathname: "/new" });
+            this.props.router.push({ pathname: "/edit" });
             this.props.dispatch(editActiveRecipeAction());
+            this.props.dispatch(toggleEditMode());
           }}
         >
         <AddIcon />

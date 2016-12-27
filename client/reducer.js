@@ -58,7 +58,7 @@ const DEFAULT_RECIPE = {
 
 export function activeRecipeReducer(state = DEFAULT_RECIPE, action) {
   if (action.type === EDIT_ACTIVE_RECIPE) {
-    return action.recipe;
+    return action.recipe || state;
   } else {
     return state;
   }
