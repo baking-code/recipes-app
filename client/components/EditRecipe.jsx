@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from "react";
+import ReactDOM from "react-dom";
 import _ from "lodash";
 import { v4 as uuid } from "node-uuid";
 import { connect } from "react-redux";
@@ -85,6 +86,10 @@ class EditRecipe extends Component {
     this.editRecipe(recipe);
   }
 
+  componentDidMount() {
+    ReactDOM.findDOMNode(this._title).focus();
+  }
+
   render() {
     const { recipe, dispatch } = this.props;
 
@@ -98,6 +103,7 @@ class EditRecipe extends Component {
                 value={recipe.name}
                 placeholder="Enter title"
                 onChange={(evt) => (this.editRecipe({...recipe, name: evt.target.value }))}
+                ref={(r) => (this._title = r)}
               />
               <InputText
                 defaultValue={recipe.description}

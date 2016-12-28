@@ -21,7 +21,7 @@ class RecipeList extends React.Component {
     return (
       <div>
         <Row >
-          <Col sm={6} className="grid-example" smOffset={3}>
+          <Col sm={6} smOffset={3}>
             <Input
               onChange={event => {
                 this.props.dispatch(this.props.searchRecipes(event.target.value));
