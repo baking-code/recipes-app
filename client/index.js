@@ -9,15 +9,15 @@ import io from "socket.io-client";
 import { composeWithDevTools } from "redux-devtools-extension";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import injectTapEventPlugin from "react-tap-event-plugin";
-injectTapEventPlugin();
-
 
 import { recipesReducer, editReducer, activeRecipeReducer } from "./reducer";
 import { loadRecipesAction } from "./actions";
 import remoteActionMiddleware from "./remoteActionMiddleware";
-import App from "./app/App";
-import RecipeList from "./components/RecipeList";
+import App from "./components/App";
+import Main from "./components/Main";
 import Recipe from "./components/Recipe";
+injectTapEventPlugin();
+
 
 const socket = io("http://localhost:3331");
 socket.on("state", state => {
@@ -64,7 +64,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Router history={browserHistory}>
         <Route path="/" component={App}>
-          <Route path="recipes" component={RecipeList} />
+          <Route path="recipes" component={Main} />
           <Route path="edit" component={Recipe} />
         </Route>
       </Router>

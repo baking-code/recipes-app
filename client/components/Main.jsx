@@ -20,8 +20,8 @@ class RecipeList extends React.Component {
   render() {
     return (
       <div>
-        <Row >
-          <Col sm={6} smOffset={3}>
+        <Row center="xs">
+          <Col sm={5} lg={5}>
             <Input
               onChange={event => {
                 this.props.dispatch(this.props.searchRecipes(event.target.value));

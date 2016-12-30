@@ -6,7 +6,6 @@ import { shaded } from "../constants/colours";
 const Card = styled.div`
   position: relative;
   background-color: #fff;
-  max-width: 800px;
   align-items: center;
   display: block;
   padding: ${props => props.title ? "15px 20px 20px" : "10px 10px 10px"};

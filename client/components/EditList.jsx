@@ -8,9 +8,9 @@ import { CancelButton, AddButton } from "./presentational/Buttons";
 class EditList extends Component {
 
   componentDidUpdate() {
-    if (this._isAdding) {
+    if (this._isUpdating) {
       this.focus();
-      this._isAdding = false;
+      this._isUpdating = false;
     }
   }
 
@@ -39,7 +39,12 @@ class EditList extends Component {
               onKeyDown={(e) => {
                 if (isLast && e.keyCode === 13) {
                   addToCollection(title.toLowerCase());
-                  this._isAdding = true;
+                  this._isUpdating = true;
+                }
+                if (isLast && e.keyCode === 8 && !item) {
+                  e.preventDefault();
+                  removeFromCollection(title.toLowerCase(), index);
+                  this._isUpdating = true;
                 }
               }}
               ref={(r) => {
