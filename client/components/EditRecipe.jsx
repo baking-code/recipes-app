@@ -15,6 +15,7 @@ import Tags from "./Tags";
 import EditList from "./EditList";
 import { Input, InputText } from "./presentational/Input";
 import { Image } from "./presentational/Image";
+import Duration from "./presentational/Duration";
 
 import Card from "./presentational/Card";
 import { editActiveRecipeAction, editRecipeAction, toggleEditMode } from "../actions";
@@ -141,9 +142,15 @@ class EditRecipe extends Component {
             />
           </Col>
         </Row>
-        <Row center="xs"><Col lg={7} xs={7}>
-          <Tags tags={recipe.tags} updateTags={(tags) => this.updateTags(tags)}/>
-        </Col></Row>
+        <Row center="xs">
+          <Col lg={7} xs={7}>
+            <Tags tags={recipe.tags} updateTags={(tags) => this.updateTags(tags)}/>
+          </Col>
+          <Col xs={1} lg={1}>
+            <Duration time={recipe.time} onChange={(evt) => (this.editRecipe({...recipe, time: evt.target.value }))}
+/>
+          </Col>
+          </Row>
         <FloatingActionButton
           style={{ bottom: "90px", right: "24px", position: "absolute" }}
           backgroundColor="#8E24AA"

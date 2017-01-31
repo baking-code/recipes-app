@@ -12,6 +12,7 @@ import { toggleEditMode } from "../actions";
 import Card from "./presentational/Card";
 import { Input, InputText } from "./presentational/Input";
 import { ImageArea } from "./presentational/Image";
+import Duration from "./presentational/Duration";
 import Tag from "./presentational/Tag";
 
 
@@ -42,6 +43,9 @@ class ViewRecipe extends Component {
         </Row>
         <Row style={{ marginTop: "20px" }} center="xs">
           <Col xs={7} lg={7}>{_.map(recipe.tags, tag => <Tag key={tag.id}>{tag.text}</Tag>)}</Col>
+          <Col xs={1} lg={1}>
+            <Duration time={recipe.time} disabled/>
+          </Col>
         </Row>
           <FloatingActionButton
             style={{ bottom: "25px", right: "24px", position: "absolute" }}
