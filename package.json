@@ -6,8 +6,9 @@
   "scripts": {
     "test": "PWD=$(pwd) ava",
     "start": "webpack-dev-server -d --history-api-fallback --inline --progress --colors --port 4441",
+    "start:dist": "cd dist && node server/app.js",
     "server": "babel-node server/app.js",
-    "build": "NODE_ENV=production webpack --progress --colors && npm run clean && npm run build:copy && npm run prune:dist && npm run build:server",
+    "build": "npm run clean && NODE_ENV=production webpack --progress --colors && npm run build:copy && npm run prune:dist && npm run build:server",
     "build:copy": "cp package.json dist/. && cp recipes-pm2.json dist/. && cp app.js dist/. && cp -Rf node_modules dist/. && mkdir dist/logs",
     "build:server": "babel server -d dist/server --presets es2015,stage-2 && cp -Rf server/data dist/server/.",
     "prune:dist": "cd dist && npm prune --production",
@@ -60,6 +61,7 @@
     "eslint-import-resolver-webpack": "^0.4.0",
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-react": "^6.3.0",
+    "express": "^4.14.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "font-awesome": "^4.6.3",

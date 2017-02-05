@@ -10,7 +10,6 @@ import { primary } from "./constants/colours";
 class App extends Component {
 
   render() {
-    console.log("Rendered");
     return (
       <div>
         <Nav>

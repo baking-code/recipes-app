@@ -27,7 +27,7 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, "./dist"),
+    path: path.join(__dirname, "./dist/client"),
     filename: "bundle.js"
   },
   module: {
@@ -85,3 +85,7 @@ module.exports = {
     contentBase: "./client"
   }
 };
+
+if (process.env.NODE_ENV === "production") {
+  module.exports.output.publicPath = "/";
+}
