@@ -46,7 +46,7 @@ class RecipeList extends React.Component {
           </Col>
         </Row>
         <FloatingActionButton
-          style={{ bottom: "25px", right: "24px", position: "absolute" }}
+          style={{ bottom: "25px", right: "24px", position: "fixed" }}
           backgroundColor="#d4e157"
           onClick={() => {
             this.props.router.push({ pathname: "/edit" });

@@ -19,7 +19,7 @@ import Recipe from "./components/Recipe";
 injectTapEventPlugin();
 
 
-const socket = io(window.location.host);
+const socket = io(window.location.hostname + ":4321");
 socket.on("state", state => {
   store.dispatch(loadRecipesAction(state));
 }

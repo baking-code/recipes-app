@@ -35,7 +35,6 @@ const Nav = styled.nav`
 `;
 
 const Title = styled(Link)`
-
   font-size: xx-large;
   color: #FFF;
   text-decoration: none;

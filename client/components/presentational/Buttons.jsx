@@ -30,6 +30,9 @@ const ButtonWrapper = styled.div`
   float: right;
   margin-right: ${props => props.marginRight || 0}px;
   margin-top: ${props => props.marginTop || 0}px;
+  &:hover {
+    opacity: 0.4;
+  }
 `;
 
 export const AddButton = (props) => (

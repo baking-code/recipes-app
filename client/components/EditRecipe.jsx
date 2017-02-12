@@ -3,31 +3,53 @@ import ReactDOM from "react-dom";
 import _ from "lodash";
 import { v4 as uuid } from "node-uuid";
 import { connect } from "react-redux";
+import { browserHistory } from "react-router";
 
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import Cancel from "material-ui/svg-icons/navigation/cancel";
 import AddIcon from "material-ui/svg-icons/content/add";
 import Save from "material-ui/svg-icons/content/save";
+import Delete from "material-ui/svg-icons/action/delete";
+import Popover from "material-ui/Popover";
 
 import { Row, Col } from "react-flexbox-grid";
 
 import Tags from "./Tags";
 import EditList from "./EditList";
+import ConfirmDelete from "./ConfirmDelete";
 import { Input, InputText } from "./presentational/Input";
 import { Image } from "./presentational/Image";
 import Duration from "./presentational/Duration";
+import { danger } from "./constants/colours";
 
 import Card from "./presentational/Card";
-import { editActiveRecipeAction, editRecipeAction, toggleEditMode } from "../actions";
+import { editActiveRecipeAction, editRecipeAction, toggleEditMode, removeRecipeAction } from "../actions";
 
 
 class EditRecipe extends Component {
   constructor(props) {
     super(props);
-    this.state = {...props.recipe};
+    this.state = { popoverOpen: false };
     this.editRecipeCollection = this.editRecipeCollection.bind(this);
     this.removeFromCollection = this.removeFromCollection.bind(this);
     this.addToCollection = this.addToCollection.bind(this);
+  }
+
+
+  handleTouchTap(event) {
+    // This prevents ghost click.
+    event.preventDefault();
+
+    this.setState({
+      popoverOpen: true,
+      anchorEl: event.currentTarget
+    });
+  }
+
+  handleRequestClose() {
+    this.setState({
+      popoverOpen: false
+    });
   }
 
 
@@ -79,6 +101,12 @@ class EditRecipe extends Component {
   saveRecipe(recipe) {
     const { dispatch } = this.props;
     dispatch(editRecipeAction(recipe));
+  }
+
+  deleteRecipe(recipe) {
+    const { dispatch } = this.props;
+    dispatch(removeRecipeAction(recipe.id));
+    this.context.router.push("/recipes");
   }
 
   updateTags(tags) {
@@ -150,21 +178,42 @@ class EditRecipe extends Component {
             <Duration time={recipe.time} onChange={(evt) => (this.editRecipe({...recipe, time: evt.target.value }))}
 />
           </Col>
-          </Row>
+        </Row>
         <FloatingActionButton
-          style={{ bottom: "90px", right: "24px", position: "absolute" }}
+            style={{ bottom: "155px", right: "32px", position: "fixed", ...shadow }}
+            backgroundColor={danger}
+            onTouchTap={(e) => this.handleTouchTap(e)}
+            mini
+          >
+          <Delete/>
+        </FloatingActionButton>
+        <FloatingActionButton
+          style={{ bottom: "90px", right: "24px", position: "fixed" }}
           backgroundColor="#8E24AA"
           onClick={() => {this.saveRecipe(recipe); toggleEditMode(); }}
           >
           <Save/>
-          </FloatingActionButton>
+        </FloatingActionButton>
         <FloatingActionButton
-          style={{ bottom: "25px", right: "24px", position: "absolute" }}
+          style={{ bottom: "25px", right: "24px", position: "fixed" }}
           backgroundColor="#d4e157"
           onClick={() => dispatch(toggleEditMode())}
           >
           <Cancel/>
-          </FloatingActionButton>
+        </FloatingActionButton>
+
+        <Popover
+            open={this.state.popoverOpen}
+            anchorEl={this.state.anchorEl}
+            anchorOrigin={{ horizontal: "left", vertical: "center" }}
+            targetOrigin={{ horizontal: "left", vertical: "center" }}
+            onRequestClose={() => this.handleRequestClose()}
+            animated={false}
+        >
+          <ConfirmDelete onClick={() => this.deleteRecipe(recipe)}>
+            Are you sure?
+          </ConfirmDelete>
+        </Popover>
       </div>
     );
   }
@@ -186,6 +235,14 @@ const getDataUri = (files, callback) => {
 EditRecipe.propTypes = {
   recipe: PropTypes.object.isRequired
 };
+
+EditRecipe.contextTypes = {
+    router: React.PropTypes.object
+};
+
+const shadow = {
+  "boxShadow": "rgba(0, 0, 0, 0.156863) 0px 1px 3px, rgba(0, 0, 0, 0.227451) 0px 1px 3px"
+}
 
 const wrap = connect();
 export default wrap(EditRecipe);

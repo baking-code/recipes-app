@@ -22,8 +22,7 @@ module.exports = {
       "react-dom",
       "redux",
       "react-redux",
-      "react-router",
-      "react-router-redux"
+      "react-router"
     ]
   },
   output: {
