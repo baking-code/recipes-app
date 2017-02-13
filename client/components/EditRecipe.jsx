@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from "react";
 import ReactDOM from "react-dom";
-import _ from "lodash";
 import { v4 as uuid } from "node-uuid";
 import { connect } from "react-redux";
 import { browserHistory } from "react-router";
@@ -10,7 +9,6 @@ import Cancel from "material-ui/svg-icons/navigation/cancel";
 import AddIcon from "material-ui/svg-icons/content/add";
 import Save from "material-ui/svg-icons/content/save";
 import Delete from "material-ui/svg-icons/action/delete";
-import Popover from "material-ui/Popover";
 
 import { Row, Col } from "react-flexbox-grid";
 
@@ -202,18 +200,16 @@ class EditRecipe extends Component {
           <Cancel/>
         </FloatingActionButton>
 
-        <Popover
+        <ConfirmDelete
             open={this.state.popoverOpen}
             anchorEl={this.state.anchorEl}
             anchorOrigin={{ horizontal: "left", vertical: "center" }}
             targetOrigin={{ horizontal: "left", vertical: "center" }}
             onRequestClose={() => this.handleRequestClose()}
             animated={false}
-        >
-          <ConfirmDelete onClick={() => this.deleteRecipe(recipe)}>
-            Are you sure?
-          </ConfirmDelete>
-        </Popover>
+            message="Are you sure?"
+            onClickConfirm={() => this.deleteRecipe(recipe)}
+        />
       </div>
     );
   }

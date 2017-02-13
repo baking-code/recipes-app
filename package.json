@@ -87,10 +87,5 @@
     "files": [
       "server/tests/test-*"
     ]
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
   }
 }

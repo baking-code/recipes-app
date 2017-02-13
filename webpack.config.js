@@ -38,8 +38,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: "babel",
-        query: { presets: ["es2015", "react"] }
+        loaders: ["babel-loader"]
       },
       {
         test: /fontawesome.+\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
