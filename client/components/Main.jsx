@@ -17,6 +17,10 @@ import { Input } from "./presentational/Input";
 
 class RecipeList extends React.Component {
 
+  componentWillMount() {
+    this.props.dispatch(this.props.searchRecipes(""));
+  }
+
   render() {
     return (
       <div>
@@ -27,6 +31,7 @@ class RecipeList extends React.Component {
                 this.props.dispatch(this.props.searchRecipes(event.target.value));
               }}
               placeholder='Search..'
+              defaultValue=""
             />
             {_.map(this.props.ids, (id) => {
               const recipe = this.props.recipes[id];
