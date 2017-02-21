@@ -13,12 +13,11 @@ function inputProps(props) {
     border-radius: 3px;
     height: 3rem;
     width: ${props.listItem ? "calc(100% - 20px)" : "100%"};
-    margin: ${props.title ? "0 0 5px 0" : "0"};
+    padding: ${props.title ? "0 0 10px 0" : "0"};
     transition-property: all;
     transition-duration: 0.3s;
     transition-timing-function: initial;
     transition-delay: initial;
-    padding: 0px;
     outline: none;
 
     &:hover {
