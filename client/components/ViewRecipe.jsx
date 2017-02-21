@@ -40,9 +40,9 @@ class ViewRecipe extends Component {
             <List items={recipe.method} title="Method" />
           </Col>
         </Row>
-        <Row style={{ marginTop: "20px" }} center="xs">
-          <Col xs={7} lg={7}>{_.map(recipe.tags, tag => <Tag key={tag.id}>{tag.text}</Tag>)}</Col>
-          <Col xs={1} lg={1}>
+        <Row style={{ marginTop: "20px" }}>
+          <Col xsOffset={1} xs={9}>{_.map(recipe.tags, tag => <Tag key={tag.id}>{tag.text}</Tag>)}</Col>
+          <Col xs={1}>
             <Duration time={recipe.time} disabled/>
           </Col>
         </Row>

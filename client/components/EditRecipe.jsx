@@ -168,11 +168,11 @@ class EditRecipe extends Component {
             />
           </Col>
         </Row>
-        <Row center="xs">
-          <Col lg={7} xs={7}>
+        <Row style={{ marginTop: "15px" }}>
+          <Col xsOffset={1} xs={9}>
             <Tags tags={recipe.tags} updateTags={(tags) => this.updateTags(tags)}/>
           </Col>
-          <Col xs={1} lg={1}>
+          <Col xs={1}>
             <Duration time={recipe.time} onChange={(evt) => (this.editRecipe({...recipe, time: evt.target.value }))}
 />
           </Col>

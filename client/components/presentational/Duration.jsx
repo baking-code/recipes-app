@@ -20,8 +20,9 @@ const TimeArea = styled.input`
 `;
 
 const Wrapper = styled.div`
-  padding: 6px;
-  display: inline-flex
+  display: inline-flex;
+  position: relative;
+  bottom: 6px;
 `;
 
 const Duration = ({ time, disabled, onChange }) => (
