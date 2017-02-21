@@ -41,7 +41,7 @@ export function recipesReducer(state = INITIAL_STATE, action) {
 export function editReducer(state = false, action) {
   switch (action.type) {
     case TOGGLE_EDIT_MODE:
-      return !state;
+      return action.isEditing;
     default:
       return state;
   }

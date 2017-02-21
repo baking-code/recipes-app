@@ -36,9 +36,10 @@ export function loadRecipesAction(recipes) {
   };
 }
 
-export function toggleEditMode() {
+export function toggleEditMode(isEditing = false) {
   return {
-    type: TOGGLE_EDIT_MODE
+    type: TOGGLE_EDIT_MODE,
+    isEditing
   };
 }
 

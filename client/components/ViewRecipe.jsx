@@ -49,7 +49,7 @@ class ViewRecipe extends Component {
           <FloatingActionButton
             style={{ bottom: "25px", right: "24px", position: "fixed" }}
             backgroundColor="#d4e157"
-            onClick={() => { dispatch(toggleEditMode()); }}
+            onClick={() => { dispatch(toggleEditMode(true)); }}
           >
           <ContentCreate/>
           </FloatingActionButton>
