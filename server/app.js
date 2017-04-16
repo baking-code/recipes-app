@@ -9,6 +9,8 @@ const app = express();
 const http = require("http").Server(app, { origins: "*:*" });
 const io = new Server(http);
 
+const TEN_MINS = 600000;
+
 const clientDir = path.join(__dirname, "..", "client");
 
 console.error(clientDir);
@@ -54,4 +56,12 @@ function startServer(io, store) {
     socket.emit("state", store.getState().toJS());
     socket.on("action", store.dispatch.bind(store));
   });
+
+  setInterval(() => {
+    const state = store.getState();
+    fs.writeFileSync(__dirname + "/data/test.json", JSON.stringify(state, null, 4), {
+      encoding: "utf8"
+    });
+    console.log("Store has been saved");
+  }, TEN_MINS);
 }
