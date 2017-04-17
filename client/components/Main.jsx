@@ -55,7 +55,7 @@ class RecipeList extends React.Component {
           backgroundColor="#d4e157"
           onClick={() => {
             this.props.router.push({ pathname: "/edit" });
-            this.props.dispatch(editActiveRecipeAction({}));
+            this.props.dispatch(editActiveRecipeAction());
             this.props.dispatch(toggleEditMode(true));
           }}
         >
