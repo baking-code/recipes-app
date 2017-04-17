@@ -33,7 +33,7 @@ fs.createReadStream(__dirname + "/data/store.json").pipe(fs.createWriteStream(__
 export const store = makeStore();
 startServer(io, store);
 
-store.dispatch(loadRecipesAction(require("./data/test.json")));
+store.dispatch(loadRecipesAction(require("./data/store.json")));
 
 console.log("Store loaded successfully");
 
