@@ -10,6 +10,7 @@ const http = require("http").Server(app, { origins: "*:*" });
 const io = new Server(http);
 
 const TEN_MINS = 600000;
+const DAY = 86400000;
 
 const clientDir = path.join(__dirname, "..", "client");
 
@@ -27,7 +28,7 @@ http.listen(4321, () => {
 });
 
 
-fs.createReadStream(__dirname + "/data/test.json").pipe(fs.createWriteStream(__dirname + "/data/test.json.bck"));
+fs.createReadStream(__dirname + "/data/store.json").pipe(fs.createWriteStream(__dirname + "/data/store.json.bck"));
 
 export const store = makeStore();
 startServer(io, store);
@@ -59,9 +60,17 @@ function startServer(io, store) {
 
   setInterval(() => {
     const state = store.getState();
-    fs.writeFileSync(__dirname + "/data/test.json", JSON.stringify(state, null, 4), {
+    fs.writeFileSync(__dirname + "/data/store.json", JSON.stringify(state, null, 4), {
       encoding: "utf8"
     });
     console.log("Store has been saved");
   }, TEN_MINS);
+
+  setInterval(() => {
+    const state = store.getState();
+    fs.writeFileSync(__dirname + `/data/store-${Date.now()}.json`, JSON.stringify(state, null, 4), {
+      encoding: "utf8"
+    });
+    console.log("Store has been backed up");
+  }, DAY);
 }
