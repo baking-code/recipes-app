@@ -17,3 +17,9 @@ const Card = styled.div`
 `;
 
 export default Card;
+
+export const RecipeCard = styled(Card)`
+  width: 400px;
+  margin: 24px auto;
+  text-align: center;
+`;

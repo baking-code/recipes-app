@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
 import styled from "styled-components";
-import { Row } from "react-flexbox-grid";
 
 import "node_modules/roboto-npm-webfont/style.scss";
 import { primary } from "./constants/colours";
@@ -13,9 +12,7 @@ class App extends Component {
     return (
       <div>
         <Nav>
-        <Row center="xs">
           <Title to={"/recipes"}>Recipes</Title>
-          </Row>
         </Nav>
         <main>
           {this.props.children}
@@ -31,13 +28,16 @@ const Nav = styled.nav`
   height: 64px;
   line-height: 64px;
   background-color: ${primary};
-  margin-bottom: 20px
+  margin-bottom: 20px;
 `;
 
 const Title = styled(Link)`
   font-size: xx-large;
   color: #FFF;
   text-decoration: none;
+  width: 120px;
+  margin: 0 auto;
+  display: block;
 `;
 
 export default App;

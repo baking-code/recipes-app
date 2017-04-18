@@ -12,7 +12,7 @@ function inputProps(props) {
     border-bottom: 1px solid ${props.disabled ? "transparent" : shaded};
     border-radius: 3px;
     height: 3rem;
-    width: ${props.listItem ? "calc(100% - 20px)" : "100%"};
+    width: ${props.width || "100%"};
     padding: ${props.title ? "0 0 10px 0" : "0"};
     transition-property: all;
     transition-duration: 0.3s;
@@ -40,4 +40,11 @@ export const InputText = styled.textarea`
   border-left: none;
   border-right: none;
   height: 60px !important;
+`;
+
+export const SearchInput = styled.input`
+  ${props => inputProps(props)}
+  margin: 0 auto;
+  display: block;
+  width: 500px;
 `;

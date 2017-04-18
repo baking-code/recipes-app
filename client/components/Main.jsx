@@ -8,12 +8,9 @@ import { createSearchAction, getSearchSelectors } from "redux-search";
 import FloatingActionButton from "material-ui/FloatingActionButton";
 import AddIcon from "material-ui/svg-icons/content/add";
 
-
-import { Row, Col } from "react-flexbox-grid";
-
 import { toggleEditMode, editActiveRecipeAction } from "../actions";
-import Card from "./presentational/Card";
-import { Input } from "./presentational/Input";
+import { RecipeCard } from "./presentational/Card";
+import { SearchInput } from "./presentational/Input";
 
 class RecipeList extends React.Component {
 
@@ -24,32 +21,28 @@ class RecipeList extends React.Component {
   render() {
     return (
       <div>
-        <Row center="xs">
-          <Col sm={5} lg={5}>
-            <Input
-              onChange={event => {
-                this.props.dispatch(this.props.searchRecipes(event.target.value));
-              }}
-              placeholder='Search..'
-              defaultValue=""
-            />
-            {_.map(this.props.ids, (id) => {
-              const recipe = this.props.recipes[id];
-              return (
-                  <Card
-                    title
-                    onClick={() => {
-                      this.props.router.push({ pathname: "/edit" });
-                      this.props.dispatch(editActiveRecipeAction(recipe));
-                    }}
-                    key={recipe.id}
-                  >
-                    {recipe.name}
-                  </Card>
-                );
-            })}
-          </Col>
-        </Row>
+        <SearchInput
+          onChange={event => {
+            this.props.dispatch(this.props.searchRecipes(event.target.value));
+          }}
+          placeholder='Search..'
+          defaultValue=""
+        />
+        {_.map(this.props.ids, (id) => {
+          const recipe = this.props.recipes[id];
+          return (
+              <RecipeCard
+                title
+                onClick={() => {
+                  this.props.router.push({ pathname: "/edit" });
+                  this.props.dispatch(editActiveRecipeAction(recipe));
+                }}
+                key={recipe.id}
+              >
+                {recipe.name}
+              </RecipeCard>
+            );
+        })}
         <FloatingActionButton
           style={{ bottom: "25px", right: "24px", position: "fixed" }}
           backgroundColor="#d4e157"
