@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Cancel from "material-ui/svg-icons/navigation/cancel";
 import Add from "material-ui/svg-icons/content/add-circle";
 
-import { primary, secondary } from "../constants/colours";
+import { primary, secondary, white80 } from "../constants/colours";
 
 const CancelButtonSvg = styled(Cancel)`
   height: ${props => (props.size ? props.size + 4 : 18)}px !important;
@@ -35,17 +35,41 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-export const AddButton = (props) => (
+export const AddButton = props => (
   <ButtonWrapper {...props}>
     <AddButtonSvg size={props.size} />
   </ButtonWrapper>
 );
 
-export const CancelButton = (props) => (
+export const CancelButton = props => (
   <ButtonWrapper {...props}>
     <CancelButtonSvg size={props.size} />
   </ButtonWrapper>
 );
 
+export const ActionButton = styled.button`
+  background-color: rgba(0, 0, 0, 0);
+  width: 110px;
+  height: 70px;
+  font-size: 2em;
+  color: ${white80};
+  border: 1px solid ${white80};
+  text-align: center;
+  line-height: 35px;
+  bottom: ${props => (props.index || 0) * 80 + 25}px;
+  right: 25px;
+  position: fixed;
+  outline: none;
+  border-radius: 1px;
+  user-select: none;
+
+  &:hover {
+    background-color: ${white80};
+    border: none;
+    color: ${primary};
+    cursor: pointer;
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+`;
 
 // rgba(0, 0, 0, 0.156863) 0px 3px 10px, rgba(0, 0, 0, 0.227451) 0px 3px 10px

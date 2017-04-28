@@ -3,17 +3,21 @@ import _ from "lodash";
 import styled from "styled-components";
 import Popover from "material-ui/Popover";
 
-import { danger } from "./constants/colours";
+import { danger, dangerHover, white80 } from "./constants/colours";
 
 const Inner = styled.div`
   background-color: ${danger};
-  padding: 12px;
   color: white;
   cursor: pointer;
-  box-shadow: 1px 1px 1px 1px rgba(0,0,0,.15);
-  border-radius: 30px;
+  height: 68px;
+  width: 108px;
+  border-radius: 1px;
+  line-height: 70px;
+  text-align: center;
+  font-size: 1em;
+  border: 1px solid ${white80};
   &:hover {
-    opacity: 0.9;
+    background-color: ${dangerHover};
   }
 `;
 
@@ -30,6 +34,6 @@ export default (props) => {
 };
 
 const popoverStyle = {
-  borderRadius: "30px",
+  borderRadius: "1px",
   transition: "width 2s"
 };

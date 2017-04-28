@@ -5,17 +5,15 @@ import { withRouter } from "react-router";
 import { createSelector } from "reselect";
 import { createSearchAction, getSearchSelectors } from "redux-search";
 
-import FloatingActionButton from "material-ui/FloatingActionButton";
-import AddIcon from "material-ui/svg-icons/content/add";
-
 import { toggleEditMode, editActiveRecipeAction } from "../actions";
 import { RecipeCard } from "./presentational/Card";
 import { SearchInput } from "./presentational/Input";
+import { ActionButton } from "./presentational/Buttons";
 
 class RecipeList extends React.Component {
-
   componentWillMount() {
     this.props.dispatch(this.props.searchRecipes(""));
+    this.props.dispatch(toggleEditMode(false));
   }
 
   componentDidMount() {
@@ -33,43 +31,39 @@ class RecipeList extends React.Component {
           onChange={event => {
             this.props.dispatch(this.props.searchRecipes(event.target.value));
           }}
-          placeholder='Search..'
+          placeholder="Search.."
           defaultValue=""
-          innerRef={(r) => (this.input = r)}
+          innerRef={r => (this.input = r)}
         />
-          {_.map(this.props.ids, (id) => {
-            const recipe = this.props.recipes[id];
-            return (
-                <RecipeCard
-                  title
-                  onClick={() => {
-                    this.props.router.push({ pathname: "/edit" });
-                    this.props.dispatch(editActiveRecipeAction(recipe));
-                  }}
-                  key={recipe.id}
-                >
-                  {recipe.name}
-                </RecipeCard>
-              );
-          })}
-        <FloatingActionButton
-          style={{ bottom: "35px", right: "34px", position: "fixed" }}
-          iconStyle={{ height: "84px", width: "84px" }}
-          backgroundColor="#d4e157"
+        {_.map(this.props.ids, id => {
+          const recipe = this.props.recipes[id];
+          return (
+            <RecipeCard
+              title
+              onClick={() => {
+                this.props.router.push({ pathname: "/edit" });
+                this.props.dispatch(editActiveRecipeAction(recipe));
+              }}
+              key={recipe.id}
+            >
+              {recipe.name}
+            </RecipeCard>
+          );
+        })}
+        <ActionButton
           onClick={() => {
             this.props.router.push({ pathname: "/edit" });
             this.props.dispatch(editActiveRecipeAction());
             this.props.dispatch(toggleEditMode(true));
           }}
         >
-        <AddIcon />
-        </FloatingActionButton>
+          New
+        </ActionButton>
 
       </div>
     );
   }
 }
-
 
 const recipes = state => state.recipes.toJS();
 
@@ -91,9 +85,10 @@ const mapStateToProps = createSelector(
   })
 );
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   searchRecipes: createSearchAction("recipes"),
-  dispatch });
+  dispatch
+});
 
 const wrap = connect(mapStateToProps, mapDispatchToProps);
 

@@ -18,6 +18,7 @@ import ConfirmDelete from "./ConfirmDelete";
 import { Input, InputText } from "./presentational/Input";
 import { Image } from "./presentational/Image";
 import Duration from "./presentational/Duration";
+import { ActionButton } from "./presentational/Buttons";
 import { danger } from "./constants/colours";
 
 import Card from "./presentational/Card";
@@ -177,28 +178,23 @@ class EditRecipe extends Component {
 />
           </Col>
         </Row>
-        <FloatingActionButton
-            style={{ bottom: "155px", right: "32px", position: "fixed", ...shadow }}
-            backgroundColor={danger}
-            onTouchTap={(e) => this.handleTouchTap(e)}
-            mini
+        <ActionButton
+            index={2}
+            onClick={(e) => this.handleTouchTap(e)}
           >
-          <Delete/>
-        </FloatingActionButton>
-        <FloatingActionButton
-          style={{ bottom: "90px", right: "24px", position: "fixed" }}
-          backgroundColor="#8E24AA"
+          Delete
+        </ActionButton>
+        <ActionButton
+          index={1}
           onClick={() => {this.saveRecipe(recipe); toggleEditMode(); }}
-          >
-          <Save/>
-        </FloatingActionButton>
-        <FloatingActionButton
-          style={{ bottom: "25px", right: "24px", position: "fixed" }}
-          backgroundColor="#d4e157"
+        >
+          Save
+        </ActionButton>
+        <ActionButton
           onClick={() => dispatch(toggleEditMode())}
-          >
-          <Cancel/>
-        </FloatingActionButton>
+        >
+          Cancel
+        </ActionButton>
 
         <ConfirmDelete
             open={this.state.popoverOpen}

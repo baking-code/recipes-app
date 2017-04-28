@@ -7,9 +7,7 @@ import { primary } from "./constants/colours";
 
 import "./styles/app.scss";
 
-
 class App extends Component {
-
   render() {
     return (
       <div>

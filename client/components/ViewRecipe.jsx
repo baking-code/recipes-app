@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import FloatingActionButton from "material-ui/FloatingActionButton";
-import ContentCreate from "material-ui/svg-icons/content/create";
-
 import { Row, Col } from "react-flexbox-grid";
 
 import List from "./List";
@@ -14,6 +11,7 @@ import { Input, InputText } from "./presentational/Input";
 import { ImageArea } from "./presentational/Image";
 import Duration from "./presentational/Duration";
 import Tag from "./presentational/Tag";
+import { ActionButton } from "./presentational/Buttons";
 
 
 class ViewRecipe extends Component {
@@ -46,13 +44,11 @@ class ViewRecipe extends Component {
             <Duration time={recipe.time} disabled/>
           </Col>
         </Row>
-          <FloatingActionButton
-            style={{ bottom: "25px", right: "24px", position: "fixed" }}
-            backgroundColor="#d4e157"
+          <ActionButton
             onClick={() => { dispatch(toggleEditMode(true)); }}
           >
-          <ContentCreate/>
-          </FloatingActionButton>
+            Edit
+          </ActionButton>
       </div>
     );
   }

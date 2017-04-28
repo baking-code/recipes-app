@@ -69,7 +69,7 @@ const Search = styled.input`
 
 const SearchWrapper = styled.div`
   display: flex;
-  width: 50vw;
+  width: 40vw;
   margin: 0 auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 `;
