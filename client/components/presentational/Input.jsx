@@ -44,12 +44,12 @@ export const InputText = styled.textarea`
 `;
 
 const Search = styled.input`
-  font-size: 2em;
+  font-size: 3em;
   background-color: transparent;
   color: rgba(255, 255, 255, 0.9) !important;
   border: none;
   border-radius: 3px;
-  height: 3rem;
+  height: 4rem;
   width: 100%;
   padding: 0;
   transition-property: all;
@@ -69,7 +69,7 @@ const Search = styled.input`
 
 const SearchWrapper = styled.div`
   display: flex;
-  width: 500px;
+  width: 50vw;
   margin: 0 auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 `;
@@ -78,7 +78,9 @@ export const SearchInput = ({ innerRef, onChange }) => (
   <SearchWrapper>
     <SearchIcon style={{
       color: "rgba(255, 255, 255, 0.9)",
-      paddingTop: "12px"
+      paddingTop: "24px",
+      minWidth: "24px",
+      minHeight: "24px"
     }}/>
   <Search innerRef={innerRef} onChange={onChange} />
   </SearchWrapper>

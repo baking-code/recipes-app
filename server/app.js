@@ -1,6 +1,7 @@
 import path from "path";
 import Server from "socket.io";
 import express from "express";
+import findRemoveSync from "find-remove";
 import fs from "fs";
 import makeStore from "./store";
 import { loadRecipesAction } from "./actions";
@@ -11,6 +12,7 @@ const io = new Server(http);
 
 const TEN_MINS = 600000;
 const DAY = 86400000;
+const WEEK = 7 * DAY;
 
 const clientDir = path.join(__dirname, "..", "client");
 
@@ -71,6 +73,7 @@ function startServer(io, store) {
     fs.writeFileSync(__dirname + `/data/store-${Date.now()}.json`, JSON.stringify(state, null, 4), {
       encoding: "utf8"
     });
+    findRemoveSync(__dirname + "/data", { age: { seconds: WEEK } });
     console.log("Store has been backed up");
   }, DAY);
 }

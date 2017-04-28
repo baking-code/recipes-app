@@ -26,17 +26,17 @@ class App extends Component {
 
 const Nav = styled.nav`
   display: block;
-  height: 64px;
-  line-height: 64px;
+  height: 88px;
+  line-height: 88px;
   background-color: rgba(142, 36, 170, 0.4);
   margin-bottom: 20px;
 `;
 
 const Title = styled(Link)`
-  font-size: xx-large;
+  font-size: 3em;
   color: #FFF;
   text-decoration: none;
-  width: 120px;
+  width: 200px;
   margin: 0 auto;
   display: block;
 `;

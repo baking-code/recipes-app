@@ -5,11 +5,10 @@ import { shaded } from "../constants/colours";
 
 const Card = styled.div`
   position: relative;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   align-items: center;
   display: block;
   padding: ${props => props.title ? "15px 20px 20px" : "10px 10px 10px"};
-  background-color: ${props => props.shaded ? shaded : "#FFF"};
   box-shadow: 1px 1px 1px 1px rgba(0,0,0,.15);
   border-radius: 2px;
   margin: .5rem;
@@ -19,8 +18,8 @@ const Card = styled.div`
 export default Card;
 
 export const RecipeCard = styled(Card)`
-  width: 400px;
+  width: 40vw;
   margin: 24px auto;
   text-align: center;
-  background-color: rgba(255, 255, 255, 0.8);
+  font-size: 2em;
 `;
