@@ -18,6 +18,14 @@ class RecipeList extends React.Component {
     this.props.dispatch(this.props.searchRecipes(""));
   }
 
+  componentDidMount() {
+    this.input.focus();
+  }
+
+  componentDidUpdate() {
+    this.input.focus();
+  }
+
   render() {
     return (
       <div>
@@ -27,22 +35,23 @@ class RecipeList extends React.Component {
           }}
           placeholder='Search..'
           defaultValue=""
+          innerRef={(r) => (this.input = r)}
         />
-        {_.map(this.props.ids, (id) => {
-          const recipe = this.props.recipes[id];
-          return (
-              <RecipeCard
-                title
-                onClick={() => {
-                  this.props.router.push({ pathname: "/edit" });
-                  this.props.dispatch(editActiveRecipeAction(recipe));
-                }}
-                key={recipe.id}
-              >
-                {recipe.name}
-              </RecipeCard>
-            );
-        })}
+          {_.map(this.props.ids, (id) => {
+            const recipe = this.props.recipes[id];
+            return (
+                <RecipeCard
+                  title
+                  onClick={() => {
+                    this.props.router.push({ pathname: "/edit" });
+                    this.props.dispatch(editActiveRecipeAction(recipe));
+                  }}
+                  key={recipe.id}
+                >
+                  {recipe.name}
+                </RecipeCard>
+              );
+          })}
         <FloatingActionButton
           style={{ bottom: "25px", right: "24px", position: "fixed" }}
           backgroundColor="#d4e157"

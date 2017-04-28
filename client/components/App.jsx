@@ -5,6 +5,8 @@ import styled from "styled-components";
 import "node_modules/roboto-npm-webfont/style.scss";
 import { primary } from "./constants/colours";
 
+import "./styles/app.scss";
+
 
 class App extends Component {
 
@@ -23,11 +25,10 @@ class App extends Component {
 }
 
 const Nav = styled.nav`
-  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
   display: block;
   height: 64px;
   line-height: 64px;
-  background-color: ${primary};
+  background-color: rgba(142, 36, 170, 0.4);
   margin-bottom: 20px;
 `;
 

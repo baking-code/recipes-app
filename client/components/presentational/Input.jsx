@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import SearchIcon from "material-ui/svg-icons/action/search";
 
 import { primary, shaded } from "../constants/colours";
 
@@ -42,9 +43,43 @@ export const InputText = styled.textarea`
   height: 60px !important;
 `;
 
-export const SearchInput = styled.input`
-  ${props => inputProps(props)}
-  margin: 0 auto;
-  display: block;
-  width: 500px;
+const Search = styled.input`
+  font-size: 2em;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border: none;
+  border-radius: 3px;
+  height: 3rem;
+  width: 100%;
+  padding: 0;
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: initial;
+  transition-delay: initial;
+  outline: none;
+
+  &:hover {
+    cursor: ${props => props.disabled ? "normal" : "text"};
+  }
+
+  width: 480px;
+  flex: 1;
+  padding-left: 12px;
 `;
+
+const SearchWrapper = styled.div`
+  display: flex;
+  width: 500px;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+`;
+
+export const SearchInput = ({ innerRef, onChange }) => (
+  <SearchWrapper>
+    <SearchIcon style={{
+      color: "rgba(255, 255, 255, 0.9)",
+      paddingTop: "12px"
+    }}/>
+  <Search innerRef={innerRef} onChange={onChange} />
+  </SearchWrapper>
+);

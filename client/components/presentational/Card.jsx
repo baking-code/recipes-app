@@ -22,4 +22,5 @@ export const RecipeCard = styled(Card)`
   width: 400px;
   margin: 24px auto;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
 `;
