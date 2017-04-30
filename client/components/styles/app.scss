@@ -1,5 +1,8 @@
 body {
-  // background-image: -webkit-linear-gradient(290deg, #3E0F66 8%, #1D0730 95%);
-  // background-image: linear-gradient(-200deg, #3E0F66 8%, #1D0730 95%);
-  background-color: #725b77;
+  background-image: -webkit-linear-gradient(-90deg, #725b77 8%, #1D0730 95%);
+  background-image: linear-gradient(-90deg, #725b77 8%, #1D0730 95%);
+
+  -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+  // background-color: #725b77;
 }
