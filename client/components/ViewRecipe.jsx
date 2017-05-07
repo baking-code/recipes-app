@@ -19,7 +19,6 @@ class ViewRecipe extends Component {
     const { recipe, dispatch } = this.props;
     return (
       <div>
-        <Row center="xs">
           <Col lg={5} xs={8}>
             <Card title>
               <Input disabled title value={recipe.name}/>
@@ -29,7 +28,6 @@ class ViewRecipe extends Component {
           <Col lg={3} xs={4}>
             <ImageArea><img src={recipe.image} width={240} height={200}/></ImageArea>
           </Col>
-        </Row>
         <Row center="xs">
           <Col lg={3} xs={8}>
             <List items={recipe.ingredients} title="Ingredients" />

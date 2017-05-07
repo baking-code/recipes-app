@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { shaded } from "../constants/colours";
+import { shaded, white40, white } from "../constants/colours";
 
 const Card = styled.div`
   position: relative;
@@ -18,8 +18,14 @@ const Card = styled.div`
 export default Card;
 
 export const RecipeCard = styled(Card)`
+  background-color: rgba(0, 0, 0, 0);
   width: 40vw;
   margin: 24px auto;
   text-align: center;
   font-size: 2em;
+  border: 1px solid ${white40};
+  &:hover {
+    border: 1px solid ${white};
+    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
 `;

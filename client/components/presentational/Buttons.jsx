@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Cancel from "material-ui/svg-icons/navigation/cancel";
 import Add from "material-ui/svg-icons/content/add-circle";
 
-import { primary, secondary, white80 } from "../constants/colours";
+import { primary, secondary, white, white80, white40 } from "../constants/colours";
 
 const CancelButtonSvg = styled(Cancel)`
   height: ${props => (props.size ? props.size + 4 : 18)}px !important;
@@ -52,8 +52,8 @@ export const ActionButton = styled.button`
   width: 110px;
   height: 70px;
   font-size: 2em;
-  color: ${white80};
-  border: 1px solid ${white80};
+  color: ${white};
+  border: 1px solid ${white40};
   text-align: center;
   line-height: 35px;
   bottom: ${props => (props.index || 0) * 80 + 25}px;
@@ -64,9 +64,8 @@ export const ActionButton = styled.button`
   user-select: none;
 
   &:hover {
-    background-color: ${white80};
-    border: none;
-    color: ${primary};
+    border: 1px solid ${white};
+    color: ${white};
     cursor: pointer;
     transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }

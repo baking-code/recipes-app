@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import SearchIcon from "material-ui/svg-icons/action/search";
 
-import { primary, shaded } from "../constants/colours";
+import { primary, shaded, white, white40, white80 } from "../constants/colours";
 
 function inputProps(props) {
   return `
@@ -46,7 +46,7 @@ export const InputText = styled.textarea`
 const Search = styled.input`
   font-size: 3em;
   background-color: transparent;
-  color: rgba(255, 255, 255, 0.9) !important;
+  color: ${white} !important;
   border: none;
   border-radius: 3px;
   height: 4rem;
@@ -71,13 +71,13 @@ const SearchWrapper = styled.div`
   display: flex;
   width: 40vw;
   margin: 0 auto;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid ${white40};
 `;
 
 export const SearchInput = ({ innerRef, onChange }) => (
   <SearchWrapper>
     <SearchIcon style={{
-      color: "rgba(255, 255, 255, 0.9)",
+      color: `${white80}`,
       paddingTop: "24px",
       minWidth: "24px",
       minHeight: "24px"

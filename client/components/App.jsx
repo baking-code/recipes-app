@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import styled from "styled-components";
 
 import "node_modules/roboto-npm-webfont/style.scss";
-import { primary } from "./constants/colours";
+import { primary, white } from "./constants/colours";
 
 import "./styles/app.scss";
 
@@ -26,13 +26,13 @@ const Nav = styled.nav`
   display: block;
   height: 88px;
   line-height: 88px;
-  background-color: rgba(142, 36, 170, 0.4);
+  background-color: ${primary};
   margin-bottom: 20px;
 `;
 
 const Title = styled(Link)`
   font-size: 3em;
-  color: #FFF;
+  color: ${white};
   text-decoration: none;
   width: 200px;
   margin: 0 auto;

@@ -1,18 +1,24 @@
 // primary dark
-$primary-dark: rgb(46, 4, 69);
+$primary-darkest: #170F11;
 
 // primary
-$primary: rgb(62, 16, 88);
+$primary-dark: #402039;
 
 // primary light
-$primary-light: rgb(117, 78, 139);
+$primary: #5C164E;
+
+$primary-light: #9B287B;
+
+$white: #E2FCEF;
 
 body {
-  background: $primary;  /* fallback for old browsers */
-  background:  radial-gradient(30% 30%, circle closest-corner, $primary, $primary-dark);
-  background:  -webkit-radial-gradient(30% 30%, circle closest-corner, $primary, $primary-dark);
+  background: $primary-dark;  /* fallback for old browsers */
+  background:  radial-gradient(30% 30%, circle closest-corner, $primary-dark, $primary-darkest);
+  background:  -webkit-radial-gradient(30% 30%, circle closest-corner, $primary-dark, $primary-darkest);
 
   height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  color: $white;
 }
