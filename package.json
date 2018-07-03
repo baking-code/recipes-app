@@ -6,12 +6,9 @@
   "scripts": {
     "test": "PWD=$(pwd) ava",
     "start": "webpack-dev-server -d --history-api-fallback --inline --progress --colors --port 4441",
-    "start:dist": "cd dist && node server/app.js",
-    "server": "babel-node server/app.js",
-    "build": "NODE_ENV=production webpack --progress --colors && npm run build:copy && npm run prune:dist && npm run build:server",
+    "build": "NODE_ENV=production webpack --progress --colors && yarn run build:copy && yarn run prune:dist",
     "build:copy": "cp package.json dist/. && cp recipes-pm2.json dist/. && cp app.js dist/. && cp -Rf node_modules dist/. && mkdir -p dist/logs",
-    "build:server": "babel server -d dist/server --presets es2015,stage-2",
-    "prune:dist": "cd dist && npm prune --production",
+    "prune:dist": "cd dist && yarn prune --production",
     "clean": "rm -rf dist && mkdir dist",
     "lint": "eslint **/*.js{x,}"
   },

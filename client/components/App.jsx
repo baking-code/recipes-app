@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Route } from "react-router";
 import styled from "styled-components";
 import "node_modules/roboto-npm-webfont/style.scss";
@@ -36,6 +36,7 @@ class App extends Component {
         <main>
           <Route path="/recipes" component={Main} />
           <Route path="/edit" component={Recipe} />
+          <Redirect from="*" to="/recipes" />
         </main>
       </div>
     );
