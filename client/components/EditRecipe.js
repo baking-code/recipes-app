@@ -6,10 +6,10 @@ import { v4 as uuid } from "node-uuid";
 import { connect } from "react-redux";
 import { browserHistory } from "react-router";
 
-import Cancel from "material-ui-icons/Cancel";
-import AddIcon from "material-ui-icons/Add";
-import Save from "material-ui-icons/Save";
-import Delete from "material-ui-icons/Delete";
+import Cancel from "@material-ui/icons/Cancel";
+import AddIcon from "@material-ui/icons/Add";
+import Save from "@material-ui/icons/Save";
+import Delete from "@material-ui/icons/Delete";
 
 import { Row, Col } from "react-flexbox-grid";
 
@@ -190,7 +190,7 @@ class EditRecipe extends Component {
           anchorEl={this.state.anchorEl}
           anchorOrigin={{ horizontal: "left", vertical: "center" }}
           targetOrigin={{ horizontal: "left", vertical: "center" }}
-          onRequestClose={() => this.handleRequestClose()}
+          onClose={() => this.handleRequestClose()}
           animated={false}
           message="Are you sure?"
           onClickConfirm={() => this.deleteRecipe(recipe)}

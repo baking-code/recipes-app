@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SearchIcon from "material-ui-icons/Search";
+import SearchIcon from "@material-ui/icons/Search";
 
 import { primary, shaded, white, white40, white80 } from "../constants/colours";
 

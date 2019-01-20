@@ -1,8 +1,7 @@
 import React from "react";
-import _ from "lodash";
+import { omit } from "lodash";
 import styled from "styled-components";
-import Popover from "material-ui/internal/Popover";
-
+import Popover from '@material-ui/core/Popover';
 import { danger, dangerHover, white80 } from "./constants/colours";
 
 const Inner = styled.div`
@@ -23,7 +22,7 @@ const Inner = styled.div`
 
 export default props => {
   const { message, onClickConfirm } = props;
-  const popoverProps = _.omit(props, ["message", "onClickConfirm"]);
+  const popoverProps = omit(props, ["message", "onClickConfirm"]);
   return (
     <Popover {...popoverProps} className="confirm-delete__popover" style={popoverStyle}>
       <Inner onClick={onClickConfirm}>

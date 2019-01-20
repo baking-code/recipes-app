@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Schedule from "material-ui-icons/Schedule";
+import Schedule from "@material-ui/icons/Schedule";
 
 const TimeIcon = styled(Schedule)`
   transform: translateY(6px);
