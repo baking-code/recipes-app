@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { Route } from "react-router";
 import styled from "styled-components";
-import "node_modules/roboto-npm-webfont/style.scss";
 import Main from "./Main";
 import Recipe from "./Recipe";
 

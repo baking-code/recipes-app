@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import EditRecipe from "./EditRecipe.jsx";
-import ViewRecipe from "./ViewRecipe.jsx";
+import EditRecipe from "./EditRecipe.js";
+import ViewRecipe from "./ViewRecipe.js";
 
 class Recipe extends Component {
   render() {

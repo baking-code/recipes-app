@@ -53,7 +53,6 @@ class Main extends React.Component {
           const recipe = this.props.recipes[id];
           return (
             <RecipeCard
-              title
               onClick={() => {
                 this.setState({
                   redirect: true

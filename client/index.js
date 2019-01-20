@@ -1,4 +1,3 @@
-import "babel-polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
 import firebase from "firebase";
@@ -12,8 +11,6 @@ import { recipesReducer, editReducer, activeRecipeReducer } from "./reducer";
 import { loadRecipesAction } from "./actions";
 import remoteActionMiddleware from "./remoteActionMiddleware";
 import App from "./components/App";
-import Main from "./components/Main";
-import Recipe from "./components/Recipe";
 
 const config = {
   apiKey: "AIzaSyAP4jPCm2k95KUBf0tEznvoZ0SE4EAo_o8",
