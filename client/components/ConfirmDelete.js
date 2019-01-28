@@ -1,7 +1,7 @@
 import React from "react";
 import { omit } from "lodash";
 import styled from "styled-components";
-import Popover from '@material-ui/core/Popover';
+import Popover from "@material-ui/core/Popover";
 import { danger, dangerHover, white80 } from "./constants/colours";
 
 const Inner = styled.div`

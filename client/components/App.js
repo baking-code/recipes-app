@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
-import { Route } from "react-router";
+import { Route, Switch } from "react-router";
 import styled from "styled-components";
 import Main from "./Main";
 import Recipe from "./Recipe";
@@ -33,9 +33,11 @@ class App extends Component {
           <Title to={"/recipes"}>Recipes</Title>
         </Nav>
         <main>
-          <Route path="/recipes" component={Main} />
-          <Route path="/edit" component={Recipe} />
-          <Redirect from="*" to="/recipes" />
+          <Switch>
+            <Route path="/recipes" exact component={Main} />
+            <Route path="/edit" exact component={Recipe} />
+            <Redirect from="*" to="/recipes" />
+          </Switch>
         </main>
       </div>
     );

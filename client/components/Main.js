@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import { connect } from "react-redux";
-import { Redirect } from "react-router";
+import { Redirect, withRouter } from "react-router";
 import { createSelector } from "reselect";
 import { createSearchAction, getSearchSelectors } from "redux-search";
 
@@ -37,6 +37,7 @@ class Main extends React.Component {
 
   render() {
     if (this.state.redirect) {
+      console.log("OI");
       return <Redirect to="/edit" />;
     }
     return (
@@ -67,7 +68,7 @@ class Main extends React.Component {
         })}
         <ActionButton
           onClick={() => {
-            this.props.router.push({ pathname: "/edit" });
+            this.props.history.push("/edit");
             this.props.dispatch(editActiveRecipeAction());
             this.props.dispatch(toggleEditMode(true));
           }}
@@ -106,4 +107,4 @@ const mapDispatchToProps = dispatch => ({
 
 const wrap = connect(mapStateToProps, mapDispatchToProps);
 
-export default wrap(Main);
+export default wrap(withRouter(Main));
