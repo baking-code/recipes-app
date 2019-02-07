@@ -11,6 +11,7 @@ import { Input, InputText } from "./presentational/Input";
 import { ImageArea } from "./presentational/Image";
 import Duration from "./presentational/Duration";
 import Tag from "./presentational/Tag";
+import Method from "./Method";
 import { ActionButton } from "./presentational/Buttons";
 
 class ViewRecipe extends Component {
@@ -26,7 +27,7 @@ class ViewRecipe extends Component {
         </Card>
         <div className="recipe__list-container">
           <List items={recipe.ingredients} title="Ingredients" />
-          <List items={recipe.method} title="Method" />
+          <Method methods={recipe.method} />
         </div>
         <Row style={{ marginTop: "20px" }}>
           <Col xsOffset={1} xs={9}>
