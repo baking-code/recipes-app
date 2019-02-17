@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 
-import { Row, Col } from "react-flexbox-grid";
+import { FlexContainer, FlexItem } from "./presentational/FlexHelpers";
 
 import List from "./List";
 import { toggleEditMode } from "../actions";
@@ -19,24 +19,29 @@ class ViewRecipe extends Component {
     const { recipe, dispatch } = this.props;
     return (
       <div>
-        <Card title>
-          {recipe.name}
-        </Card>
-        <Card>
-          {recipe.description}
-        </Card>
+        <Card title>{recipe.name}</Card>
+        <FlexContainer align="flex-start">
+          <FlexItem ratio={2}>
+            <Card>{recipe.description}</Card>
+          </FlexItem>
+          <FlexItem ratio={1}>
+            <Card>
+              <FlexContainer column align="flex-start">
+                <Duration time={recipe.time} disabled />
+                <FlexContainer>
+                  {_.map(recipe.tags, tag => (
+                    <Tag key={tag.id}>{tag.text}</Tag>
+                  ))}
+                </FlexContainer>
+              </FlexContainer>
+            </Card>
+          </FlexItem>
+        </FlexContainer>
         <div className="recipe__list-container">
           <List items={recipe.ingredients} title="Ingredients" />
           <Method methods={recipe.method} />
         </div>
-        <Row style={{ marginTop: "20px" }}>
-          <Col xsOffset={1} xs={9}>
-            {_.map(recipe.tags, tag => <Tag key={tag.id}>{tag.text}</Tag>)}
-          </Col>
-          <Col xs={1}>
-            <Duration time={recipe.time} disabled />
-          </Col>
-        </Row>
+
         <ActionButton
           onClick={() => {
             dispatch(toggleEditMode(true));
