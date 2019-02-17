@@ -2,13 +2,15 @@ import React, { PureComponent } from "react";
 import styled, { css } from "styled-components";
 
 import { shaded, white40, white } from "./constants/colours";
+import { ITEM_WIDTH } from "./constants/variables";
+import withTitle from "./presentational/Title";
 
 const HEIGHT = 18;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 460px;
+  min-width: ${ITEM_WIDTH}px;
   margin: 24px auto;
 `;
 
@@ -93,4 +95,4 @@ class Methods extends PureComponent {
   }
 }
 
-export default Methods;
+export default withTitle(Methods);

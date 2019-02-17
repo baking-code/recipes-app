@@ -4,7 +4,7 @@ import _ from "lodash";
 
 import { FlexContainer, FlexItem } from "./presentational/FlexHelpers";
 
-import List from "./List";
+import List from "./IngredientList";
 import { toggleEditMode } from "../actions";
 import Card from "./presentational/Card";
 import { Input, InputText } from "./presentational/Input";
@@ -19,8 +19,8 @@ class ViewRecipe extends Component {
     const { recipe, dispatch } = this.props;
     return (
       <div>
-        <Card title>{recipe.name}</Card>
-        <FlexContainer align="flex-start">
+        <Card isTitle>{recipe.name}</Card>
+        <FlexContainer align="flex-start" isWrapped>
           <FlexItem ratio={2}>
             <Card>{recipe.description}</Card>
           </FlexItem>
@@ -28,7 +28,7 @@ class ViewRecipe extends Component {
             <Card>
               <FlexContainer column align="flex-start">
                 <Duration time={recipe.time} disabled />
-                <FlexContainer>
+                <FlexContainer margin="0">
                   {_.map(recipe.tags, tag => (
                     <Tag key={tag.id}>{tag.text}</Tag>
                   ))}
@@ -39,7 +39,7 @@ class ViewRecipe extends Component {
         </FlexContainer>
         <div className="recipe__list-container">
           <List items={recipe.ingredients} title="Ingredients" />
-          <Method methods={recipe.method} />
+          <Method methods={recipe.method} title="Method" />
         </div>
 
         <ActionButton

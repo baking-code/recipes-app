@@ -123,7 +123,7 @@ class EditRecipe extends Component {
       <div>
         <Row center="xs">
           <Col lg={5} xs={8}>
-            <Card title>
+            <Card isTitle>
               <Input
                 title
                 value={recipe.name}

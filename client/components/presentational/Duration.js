@@ -1,33 +1,46 @@
 import React from "react";
 import styled from "styled-components";
 import Schedule from "@material-ui/icons/Schedule";
+import { white } from "../constants/colours";
 
 const TimeIcon = styled(Schedule)`
-  transform: translateY(6px);
-  height: 28px !important;
-  width: 28px !important;
+  height: 24px !important;
+  width: 24px !important;
 `;
 
 const TimeArea = styled.input`
   display: inline-block;
   background-color: transparent;
-  color: black !important;
+  color: ${white} !important;
   border: none;
   font-size: 24px;
-  padding: 4px 0px 0px 0px;
+  padding-left: 8px;
   outline: none;
+  width: 50px;
 `;
 
 const Wrapper = styled.div`
-  display: inline-flex;
+  display: flex;
   position: relative;
-  bottom: 6px;
+  align-items: center;
+  margin-bottom: 8px;
+  color: ${white} !important;
 `;
 
-const Duration = ({ time, disabled, onChange }) =>
+const Duration = ({ time = 0, disabled, onChange }) => (
   <Wrapper>
     <TimeIcon />
-    <TimeArea disabled={disabled} type="number" min="0" max="1000" step="10" defaultValue={time} onChange={onChange} />
-  </Wrapper>;
+    <TimeArea
+      disabled={disabled}
+      type="number"
+      min="0"
+      max="1000"
+      step="5"
+      defaultValue={time}
+      onChange={onChange}
+    />
+    {" "}(minutes)
+  </Wrapper>
+);
 
 export default Duration;

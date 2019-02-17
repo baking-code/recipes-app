@@ -81,5 +81,5 @@ export const SearchInput = ({ innerRef, onChange }) =>
         minHeight: "24px"
       }}
     />
-    <Search innerRef={innerRef} onChange={onChange} />
+    <Search ref={innerRef} onChange={onChange} />
   </SearchWrapper>;

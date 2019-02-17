@@ -37,7 +37,6 @@ class Main extends React.Component {
 
   render() {
     if (this.state.redirect) {
-      console.log("OI");
       return <Redirect to="/edit" />;
     }
     return (

@@ -4,14 +4,14 @@ import styled from "styled-components";
 import { shaded, white40, white } from "../constants/colours";
 
 const Card = styled.div`
-  padding: ${props => (props.title ? "15px 20px 20px" : "10px 10px 10px")};
+  padding: ${props => (props.isTitle ? "15px 20px 20px" : "10px 10px 10px")};
   cursor: ${props => (props.onClick ? "pointer" : "default")};
   background-color: rgba(0, 0, 0, 0);
-  width: 40vw;
   margin: 24px auto;
   text-align: center;
-  font-size: ${props => (props.title ? "2.5em" : "2m")};
+  font-size: ${props => (props.isTitle ? "2.5em" : "2m")};
   border: 1px solid ${white40};
+  border-radius: 2px;
 `;
 
 export default Card;
