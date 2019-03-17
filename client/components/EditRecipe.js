@@ -133,7 +133,7 @@ class EditRecipe extends Component {
               />
               <InputText
                 defaultValue={recipe.description}
-                placeholder="Enter description"
+                placeholder="description"
                 onChange={evt => this.editRecipe({ ...recipe, description: evt.target.value })}
                 rows={4}
               />

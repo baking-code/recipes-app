@@ -59,11 +59,31 @@ module.exports = {
         test: /\.js(\?.*)?$/i
       })
     ]
+  },
+  resolve: {
+    alias: {
+      "styled-components": path.resolve(
+        __dirname,
+        "node_modules",
+        "styled-components"
+      ),
+      "react": path.resolve(
+        __dirname,
+        "node_modules",
+        "react"
+      ),
+      "react-dom": path.resolve(
+        __dirname,
+        "node_modules",
+        "react-dom"
+      )
+    }
   }
 };
 
 if (process.env.NODE_ENV === "production") {
   module.exports.output.publicPath = "/";
+  module.exports.devtool = "source-map";
 } else {
   module.exports.devtool = "source-map";
 }

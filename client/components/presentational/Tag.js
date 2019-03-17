@@ -5,7 +5,7 @@ import { white40, white80 } from "../constants/colours";
 
 export default styled.div`
   padding: 6px;
-  margin-right: 5px;
+  margin: 2px 5px 2px 0px;
   background-color: rgba(0, 0, 0, 0);
   color: ${white80};
   border-radius: 2px;

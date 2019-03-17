@@ -2,37 +2,28 @@ import React from "react";
 import styled from "styled-components";
 import SearchIcon from "@material-ui/icons/Search";
 
-import { primary, shaded, white, white40, white80 } from "../constants/colours";
+import { primary, white10, white, white40, white80 } from "../constants/colours";
 
 function inputProps(props) {
   return `
-    font-size: ${props.title ? "3em !important" : "1em"};
-    background-color: transparent;
-    color: black !important;
+    font-size: ${props.title ? "2.5em !important" : "1em"};
+    color: ${white} !important;
     border: none;
-    border-bottom: 1px solid ${props.disabled ? "transparent" : shaded};
-    border-radius: 3px;
+    border-radius: 4px;
     height: 3rem;
-    width: ${props.width || "100%"};
-    padding: ${props.title ? "0 0 10px 0" : "0"};
-    transition-property: all;
-    transition-duration: 0.3s;
-    transition-timing-function: initial;
-    transition-delay: initial;
-    outline: none;
-
-    &:hover {
-      cursor: ${props.disabled ? "normal" : "text"};
-    }
+    width: ${props.width || "90%"};
+    padding: 8px;
+    background-color: transparent;
     &:focus {
       box-shadow: 0 2px 0 0 ${primary};
+      outline: none;
     }
 `;
 }
 
 export const Input = styled.input`${props => inputProps(props)};`;
 
-export const InputText = styled.textarea`
+export const TextField = styled.textarea`
   ${props => inputProps(props)} resize: none;
   border-top: none;
   border-left: none;

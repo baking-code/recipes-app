@@ -11,6 +11,7 @@ export const white = "#E2FCEF";
 export const white80 = "rgba(226, 252, 239, 0.8)";
 
 export const white40 = "rgba(226, 252, 239, 0.4)";
+export const white10 = "rgba(226, 252, 239, 0.1)";
 
 export const secondary = "#d4e157";
 

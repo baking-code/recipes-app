@@ -9,7 +9,7 @@ class Recipe extends Component {
   render() {
     const { recipe, isEdit } = this.props;
     if (isEdit) {
-      return <EditRecipe recipe={recipe} />;
+      return <ViewRecipe recipe={recipe} editing={isEdit} />;
     } else {
       return <ViewRecipe recipe={recipe} />;
     }

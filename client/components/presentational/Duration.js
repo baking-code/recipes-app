@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   align-items: center;
   margin-bottom: 8px;
   color: ${white} !important;
+  padding-left: 6px;
 `;
 
 const Duration = ({ time = 0, disabled, onChange }) => (
