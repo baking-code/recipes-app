@@ -125,7 +125,7 @@ class EditRecipe extends Component {
           <Col lg={5} xs={8}>
             <Card isTitle>
               <Input
-                title
+                isTitle
                 value={recipe.name}
                 placeholder="Enter title"
                 onChange={evt => this.editRecipe({ ...recipe, name: evt.target.value })}
@@ -133,7 +133,7 @@ class EditRecipe extends Component {
               />
               <InputText
                 defaultValue={recipe.description}
-                placeholder="description"
+                placeholder="Description"
                 onChange={evt => this.editRecipe({ ...recipe, description: evt.target.value })}
                 rows={4}
               />

@@ -1,7 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import { shaded, white40, white, white10 } from "../constants/colours";
+import { white40, white, white10 } from "../constants/colours";
+import { INPUT_HEIGHT, ITEM_WIDTH } from "../constants/variables";
 
 const Card = styled.div`
   transition: background-color 300ms ease;
@@ -28,4 +29,28 @@ export const RecipeCard = styled(Card)`
     border: 1px solid ${white};
     transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   }
+`;
+
+export const ListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-width: ${ITEM_WIDTH}px;
+  margin: 24px auto;
+`;
+
+export const InputWrapper = styled.div`
+  border: 1px solid ${white40};
+  color: ${white};
+  height: ${INPUT_HEIGHT}px;
+  padding: 10px;
+  margin: 20px 0;
+  user-select: none;
+  overflow: hidden;
+  cursor: pointer;
+  ${props =>
+    !props.expanded &&
+    css`
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    `}
 `;

@@ -5,8 +5,9 @@ import SearchIcon from "@material-ui/icons/Search";
 import { primary, white10, white, white40, white80 } from "../constants/colours";
 
 function inputProps(props) {
+  console.log(props.isTitle);
   return `
-    font-size: ${props.title ? "2.5em !important" : "1em"};
+    font-size: ${props.isTitle ? "2em !important" : "24px"};
     color: ${white} !important;
     border: none;
     border-radius: 4px;

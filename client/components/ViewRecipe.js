@@ -121,6 +121,7 @@ class ViewRecipe extends Component {
       <div>
         <Card isTitle editing={editing}>
           <Input
+            isTitle
             placeholder="title..."
             onChange={evt =>
               editing && this.editRecipe({ ...recipe, name: evt.target.value })
