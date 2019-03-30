@@ -23,7 +23,7 @@ const Ingredients = ({
         {map(items, (item, index) => {
           const isLast = index === items.length - 1;
           return (
-            <InputWrapper key={`ing-${index}`}>
+            <InputWrapper key={`ing-${index}`} editing={editing}>
               <Input
                 value={item}
                 disabled={!editing}

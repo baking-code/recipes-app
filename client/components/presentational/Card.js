@@ -46,6 +46,7 @@ export const InputWrapper = styled.div`
   margin: 20px 0;
   user-select: none;
   overflow: hidden;
+  background-color: ${props => (props.editing ? white10 : "transparent")};
   cursor: pointer;
   ${props =>
     !props.expanded &&

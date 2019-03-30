@@ -16,7 +16,7 @@ function inputProps(props) {
     padding: 8px;
     background-color: transparent;
     &:focus {
-      box-shadow: 0 2px 0 0 ${primary};
+      box-shadow: none;
       outline: none;
     }
 `;
