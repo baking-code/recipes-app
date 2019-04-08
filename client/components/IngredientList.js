@@ -47,7 +47,6 @@ const Ingredients = ({
               {editing && (
                 <CancelButton
                   onClick={() => removeFromCollection(KEY, index)}
-                  marginTop={20}
                 />
               )}
             </InputWrapper>
@@ -57,7 +56,7 @@ const Ingredients = ({
           <AddButton
             onClick={() => addToCollection(KEY)}
             size={18}
-            marginRight={16}
+            marginRight={11}
           />
         )}
       </ul>

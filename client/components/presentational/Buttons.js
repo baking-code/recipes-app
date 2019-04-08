@@ -16,9 +16,9 @@ const ButtonWrapper = styled.div`
   }
 `;
 
-export const AddButton = props => <ButtonWrapper {...props} />;
+export const AddButton = props => <ButtonWrapper {...props} >+</ButtonWrapper>;
 
-export const CancelButton = props => <ButtonWrapper {...props} />;
+export const CancelButton = props => <ButtonWrapper {...props}>x</ButtonWrapper>;
 
 export const ActionButton = styled.button`
   background-color: rgba(0, 0, 0, 0);

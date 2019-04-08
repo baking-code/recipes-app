@@ -48,6 +48,8 @@ export const InputWrapper = styled.div`
   overflow: hidden;
   background-color: ${props => (props.editing ? white10 : "transparent")};
   cursor: pointer;
+  display: flex;
+  align-items: center;
   ${props =>
     !props.expanded &&
     css`

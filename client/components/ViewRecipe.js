@@ -178,7 +178,14 @@ class ViewRecipe extends Component {
             addToCollection={this.addToCollection}
           />
 
-          <Method methods={recipe.method} title="Method" />
+          <Method
+            methods={recipe.method}
+            title="Method"
+            editing={editing}
+            editRecipeCollection={this.editRecipeCollection}
+            removeFromCollection={this.removeFromCollection}
+            addToCollection={this.addToCollection}
+          />
         </div>
 
         {editing ? (
