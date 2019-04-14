@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import ReactDOM from "react-dom";
-import _ from "lodash";
+import { map } from "lodash";
 import { FlexContainer, FlexItem } from "./presentational/FlexHelpers";
 
 import List from "./IngredientList";
@@ -159,7 +159,7 @@ class ViewRecipe extends Component {
                       updateTags={tags => this.updateTags(tags)}
                     />
                   ) : (
-                    _.map(recipe.tags, tag => (
+                    map(recipe.tags, tag => (
                       <Tag key={tag.id}>{tag.text}</Tag>
                     ))
                   )}

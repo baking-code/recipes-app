@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { INPUT_HEIGHT } from "./constants/variables";
 import withTitle from "./presentational/Title";
-import { Input } from "./presentational/Input";
+import { TextField } from "./presentational/Input";
 
 import { InputWrapper, ListWrapper } from "./presentational/Card";
 import { CancelButton, AddButton } from "./presentational/Buttons";
@@ -17,14 +17,18 @@ class Method extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const hasExpanded = !prevState.expanded && this.state.expanded;
+    const hasExpanded =
+      (this.props.editing && !prevProps.editing) ||
+      (!prevState.expanded && this.state.expanded);
     const { height, padding } = getComputedStyle(this._el);
-    const scrollHeight = this._el.scrollHeight - padding.slice(0, -2) * 2;
+    const scrollHeight = this._input.scrollHeight;
     const computedHeight = +height.slice(0, -2);
+    console.log("SS", scrollHeight, computedHeight, this._input.scrollHeight);
     const rate = (60 * (scrollHeight - INPUT_HEIGHT)) / 500;
     let i = hasExpanded ? INPUT_HEIGHT : computedHeight;
     const animateHeight = () => {
       this._el.style.height = `${i}px`;
+      this._input.style.height = `${i - padding.slice(0, -2) * 2}px`;
       const condition = hasExpanded ? i < scrollHeight : i > INPUT_HEIGHT;
       if (condition) {
         requestAnimationFrame(animateHeight);
@@ -39,9 +43,11 @@ class Method extends PureComponent {
   }
 
   onToggleBlock() {
-    this.setState(state => ({
-      expanded: !state.expanded
-    }));
+    if (!this.props.editing) {
+      this.setState(state => ({
+        expanded: !state.expanded
+      }));
+    }
   }
 
   render() {
@@ -59,7 +65,7 @@ class Method extends PureComponent {
         expanded={this.state.expanded}
         ref={r => (this._el = r)}
       >
-        <Input
+        <TextField
           value={method}
           disabled={!editing}
           placeholder="ingredients..."
@@ -75,6 +81,7 @@ class Method extends PureComponent {
               this._isUpdating.current = true;
             }
           }}
+          ref={r => (this._input = r)}
         />
         {editing && (
           <CancelButton onClick={() => removeFromCollection(KEY, index)} />

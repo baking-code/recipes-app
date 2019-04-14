@@ -5,7 +5,6 @@ import SearchIcon from "@material-ui/icons/Search";
 import { primary, white10, white, white40, white80 } from "../constants/colours";
 
 function inputProps(props) {
-  console.log(props.isTitle);
   return `
     font-size: ${props.isTitle ? "2em !important" : "24px"};
     color: ${white} !important;
@@ -25,11 +24,11 @@ function inputProps(props) {
 export const Input = styled.input`${props => inputProps(props)};`;
 
 export const TextField = styled.textarea`
-  ${props => inputProps(props)} resize: none;
+  ${props => inputProps(props)};
+  resize: none;
   border-top: none;
   border-left: none;
   border-right: none;
-  height: 60px !important;
 `;
 
 const Search = styled.input`
