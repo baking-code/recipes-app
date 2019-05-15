@@ -56,7 +56,9 @@ class Method extends PureComponent {
       editing,
       editRecipeCollection,
       addToCollection,
-      removeFromCollection
+      removeFromCollection,
+      isLast,
+      key: index
     } = this.props;
 
     return (
