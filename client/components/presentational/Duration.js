@@ -13,7 +13,7 @@ const TimeArea = styled.input`
   background-color: transparent;
   color: ${white} !important;
   border: none;
-  font-size: 24px;
+  font-size: 30px;
   padding-left: 8px;
   outline: none;
   width: 50px;

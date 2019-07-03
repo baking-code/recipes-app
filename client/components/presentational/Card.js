@@ -11,7 +11,7 @@ const Card = styled.div`
   background-color: ${props => (props.editing ? white10 : "transparent")};
   margin: 24px auto;
   text-align: center;
-  font-size: ${props => (props.isTitle ? "2.5em" : "1em")};
+  font-size: ${props => (props.isTitle ? "64px" : "24px")};
   border: 1px solid ${white40};
   border-radius: 2px;
 `;
@@ -23,7 +23,7 @@ export const RecipeCard = styled(Card)`
   width: 40vw;
   margin: 24px auto;
   text-align: center;
-  font-size: 2em;
+  font-size: 36px;
   border: 1px solid ${white40};
   &:hover {
     border: 1px solid ${white};

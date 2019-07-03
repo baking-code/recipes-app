@@ -13,7 +13,7 @@ const Inner = styled.div`
   border-radius: 1px;
   line-height: 70px;
   text-align: center;
-  font-size: 1em;
+  font-size: 120%;
   border: 1px solid ${white80};
   &:hover {
     background-color: ${dangerHover};

@@ -18,7 +18,7 @@ const Nav = styled.nav`
 `;
 
 const Title = styled(Link)`
-font-size: 3em;
+font-size: 64px;
 color: ${white};
 text-decoration: none;
 width: 200px;

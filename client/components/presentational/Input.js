@@ -6,11 +6,11 @@ import { primary, white10, white, white40, white80 } from "../constants/colours"
 
 function inputProps(props) {
   return `
-    font-size: ${props.isTitle ? "2em !important" : "24px"};
+    font-size: ${props.isTitle ? "64px !important" : "30px"};
     color: ${white} !important;
     border: none;
     border-radius: 4px;
-    height: 3rem;
+    height: 4rem;
     width: ${props.width || "90%"};
     padding: 8px;
     background-color: transparent;
@@ -32,7 +32,7 @@ export const TextField = styled.textarea`
 `;
 
 const Search = styled.input`
-  font-size: 3em;
+  font-size: 48px;
   background-color: transparent;
   color: ${white} !important;
   border: none;

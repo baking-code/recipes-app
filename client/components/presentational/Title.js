@@ -4,7 +4,7 @@ import { FlexContainer } from "./FlexHelpers";
 
 const Title = styled.legend`
   padding: 8px;
-  font-size: 24px;
+  font-size: 64px;
   margin: 0 auto;
 `;
 

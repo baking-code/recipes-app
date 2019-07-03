@@ -21,10 +21,10 @@ export const AddButton = props => <ButtonWrapper {...props} >+</ButtonWrapper>;
 export const CancelButton = props => <ButtonWrapper {...props}>x</ButtonWrapper>;
 
 export const ActionButton = styled.button`
-  background-color: rgba(0, 0, 0, 0);
-  width: 110px;
+  background-color: ${primary};
+  width: 140px;
   height: 70px;
-  font-size: 2em;
+  font-size: 36px;
   color: ${white};
   border: 1px solid ${white40};
   text-align: center;
@@ -35,7 +35,7 @@ export const ActionButton = styled.button`
   outline: none;
   border-radius: 1px;
   user-select: none;
-
+  z-index: 5;
   &:hover {
     border: 1px solid ${white};
     color: ${white};
