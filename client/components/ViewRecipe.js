@@ -11,9 +11,8 @@ import { ImageArea } from "./presentational/Image";
 import Duration from "./presentational/Duration";
 import Tag from "./presentational/Tag";
 import Tags from "./Tags";
-import Method from "./Method";
+import Methods from "./Method";
 import ConfirmDelete from "./ConfirmDelete";
-import EditList from "./EditList";
 
 import { ActionButton } from "./presentational/Buttons";
 
@@ -61,7 +60,7 @@ class ViewRecipe extends Component {
   editRecipeCollection(collectionName, index, value) {
     const recipe = { ...this.props.recipe };
     recipe[collectionName][index] = value;
-
+    debugger;
     this.editRecipe(recipe);
   }
 
@@ -133,7 +132,7 @@ class ViewRecipe extends Component {
         </Card>
         <FlexContainer align="flex-start" isWrapped>
           <FlexItem ratio={2}>
-            <Card editing={editing}>
+            <Card editing={editing} isDescription>
               <TextField
                 defaultValue={recipe.description}
                 placeholder="description..."
@@ -145,6 +144,7 @@ class ViewRecipe extends Component {
                   })
                 }
                 disabled={!editing}
+                isDescription
               />
             </Card>
           </FlexItem>
@@ -178,8 +178,8 @@ class ViewRecipe extends Component {
             addToCollection={this.addToCollection}
           />
 
-          <Method
-            methods={recipe.method}
+          <Methods
+            items={recipe.method}
             title="Method"
             editing={editing}
             editRecipeCollection={this.editRecipeCollection}

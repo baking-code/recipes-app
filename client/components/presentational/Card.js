@@ -12,7 +12,8 @@ const Card = styled.div`
   margin: 24px auto;
   text-align: center;
   font-size: ${props => (props.isTitle ? "64px" : "24px")};
-  border: 1px solid ${white40};
+  border: 1px solid
+    ${props => (props.isTitle || props.isDescription ? white40 : "transparent")};
   border-radius: 2px;
 `;
 
@@ -39,14 +40,12 @@ export const ListWrapper = styled.div`
 `;
 
 export const InputWrapper = styled.div`
-  border: 1px solid ${white40};
   color: ${white};
   height: ${INPUT_HEIGHT}px;
   padding: 10px;
   margin: 20px 0;
   user-select: none;
   overflow: hidden;
-  background-color: ${props => (props.editing ? white10 : "transparent")};
   cursor: pointer;
   display: flex;
   align-items: center;

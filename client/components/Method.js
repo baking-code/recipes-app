@@ -23,7 +23,6 @@ class Method extends PureComponent {
     const { height, padding } = getComputedStyle(this._el);
     const scrollHeight = this._input.scrollHeight;
     const computedHeight = +height.slice(0, -2);
-    console.log("SS", scrollHeight, computedHeight, this._input.scrollHeight);
     const rate = (60 * (scrollHeight - INPUT_HEIGHT)) / 500;
     let i = hasExpanded ? INPUT_HEIGHT : computedHeight;
     const animateHeight = () => {
@@ -58,7 +57,7 @@ class Method extends PureComponent {
       addToCollection,
       removeFromCollection,
       isLast,
-      key: index
+      index
     } = this.props;
 
     return (
@@ -67,17 +66,20 @@ class Method extends PureComponent {
         expanded={this.state.expanded}
         ref={r => (this._el = r)}
       >
+        {editing && (
+          <CancelButton onClick={() => removeFromCollection(KEY, index)} />
+        )}
         <TextField
           value={method}
           disabled={!editing}
-          placeholder="ingredients..."
+          placeholder="method..."
           onChange={evt => editRecipeCollection(KEY, index, evt.target.value)}
           onKeyDown={e => {
             if (isLast && e.keyCode === 13) {
               addToCollection(KEY);
               this._isUpdating.current = true;
             }
-            if (isLast && e.keyCode === 8 && !item) {
+            if (isLast && e.keyCode === 8 && !method) {
               e.preventDefault();
               removeFromCollection(KEY, index);
               this._isUpdating.current = true;
@@ -85,40 +87,25 @@ class Method extends PureComponent {
           }}
           ref={r => (this._input = r)}
         />
-        {editing && (
-          <CancelButton onClick={() => removeFromCollection(KEY, index)} />
-        )}
       </InputWrapper>
     );
   }
 }
 
-class Methods extends PureComponent {
-  render() {
-    const { methods, editing, addToCollection, ...rest } = this.props;
-
-    return (
-      <ListWrapper>
-        {methods.map((method, i) => (
-          <Method
-            key={i}
-            method={method}
-            addToCollection={addToCollection}
-            editing={editing}
-            {...rest}
-            isLast={i === methods.length - 1}
-          />
-        ))}
-        {editing && (
-          <AddButton
-            onClick={() => addToCollection(KEY)}
-            size={18}
-            marginRight={11}
-          />
-        )}
-      </ListWrapper>
-    );
-  }
-}
-
+const Methods = ({ items, editing, addToCollection, ...rest }) => (
+  <ListWrapper>
+    {items.map((method, i) => (
+      <Method
+        key={i}
+        index={i}
+        method={method}
+        addToCollection={addToCollection}
+        editing={editing}
+        {...rest}
+        isLast={i === items.length - 1}
+      />
+    ))}
+    {editing && <AddButton onClick={() => addToCollection(KEY)} />}
+  </ListWrapper>
+);
 export default withTitle(Methods);

@@ -1,24 +1,59 @@
 import React from "react";
+import Cancel from "@material-ui/icons/Cancel";
+import Plus from "@material-ui/icons/Add";
+
 import styled from "styled-components";
 
-import { primary, secondary, white, white80, white40 } from "../constants/colours";
+import {
+  primary,
+  secondary,
+  white,
+  white80,
+  white40
+} from "../constants/colours";
+import { ITEM_WIDTH } from "../constants/variables";
 
 const ButtonWrapper = styled.div`
-  box-shadow: rgba(0, 0, 0, 0.156863) 0px 1px 5px, rgba(0, 0, 0, 0.227451) 0px 1px 5px;
+  box-shadow: rgba(0, 0, 0, 0.156863) 0px 1px 5px,
+    rgba(0, 0, 0, 0.227451) 0px 1px 5px;
   border-radius: 50%;
-  height: ${props => props.size || 14}px !important;
-  width: ${props => props.size || 14}px !important;
-  float: right;
-  margin-right: ${props => props.marginRight || 0}px;
-  margin-top: ${props => props.marginTop || 0}px;
+  height: ${props => props.size || 28}px !important;
+  width: ${props => props.size || 28}px !important;
+  path:first-child {
+    fill: ${white40};
+  }
   &:hover {
-    opacity: 0.4;
+    path:first-child {
+      fill: ${white80};
+    }
   }
 `;
 
-export const AddButton = props => <ButtonWrapper {...props} >+</ButtonWrapper>;
+const AddWrapper = styled.div`
+  border: 1px dashed ${white40};
+  height: 4rem;
+  min-width: 400px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  &:hover {
+    border: 1px dashed ${white80};
+  }
+`;
 
-export const CancelButton = props => <ButtonWrapper {...props}>x</ButtonWrapper>;
+export const AddButton = props => (
+  <AddWrapper {...props}>
+    <Plus />
+  </AddWrapper>
+);
+
+export const CancelButton = props => (
+  <ButtonWrapper {...props}>
+    <Cancel />
+  </ButtonWrapper>
+);
 
 export const ActionButton = styled.button`
   background-color: ${primary};

@@ -24,6 +24,11 @@ const Ingredients = ({
           const isLast = index === items.length - 1;
           return (
             <InputWrapper key={`ing-${index}`} editing={editing}>
+              {editing && (
+                <CancelButton
+                  onClick={() => removeFromCollection(KEY, index)}
+                />
+              )}
               <Input
                 value={item}
                 disabled={!editing}
@@ -44,19 +49,13 @@ const Ingredients = ({
                 }}
                 ref={_focusLast}
               />
-              {editing && (
-                <CancelButton
-                  onClick={() => removeFromCollection(KEY, index)}
-                />
-              )}
+              
             </InputWrapper>
           );
         })}
         {editing && (
           <AddButton
             onClick={() => addToCollection(KEY)}
-            size={18}
-            marginRight={11}
           />
         )}
       </ul>

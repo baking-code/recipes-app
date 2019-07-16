@@ -2,18 +2,29 @@ import React from "react";
 import styled from "styled-components";
 import SearchIcon from "@material-ui/icons/Search";
 
-import { primary, white10, white, white40, white80 } from "../constants/colours";
+import {
+  primary,
+  white10,
+  white,
+  white40,
+  white80
+} from "../constants/colours";
 
 function inputProps(props) {
   return `
     font-size: ${props.isTitle ? "64px !important" : "30px"};
     color: ${white} !important;
-    border: none;
     border-radius: 4px;
     height: 4rem;
     width: ${props.width || "90%"};
     padding: 8px;
-    background-color: transparent;
+    transition: background-color,border 300ms ease;
+    border: ${
+      props.isTitle || props.isDescription
+        ? "none"
+        : `1px solid ${props.editing ? white80 : white40}`
+    };
+    background-color: ${props.editing ? white10 : "transparent"};
     &:focus {
       box-shadow: none;
       outline: none;
@@ -21,14 +32,13 @@ function inputProps(props) {
 `;
 }
 
-export const Input = styled.input`${props => inputProps(props)};`;
+export const Input = styled.input`
+  ${props => inputProps(props)};
+`;
 
 export const TextField = styled.textarea`
   ${props => inputProps(props)};
   resize: none;
-  border-top: none;
-  border-left: none;
-  border-right: none;
 `;
 
 const Search = styled.input`
@@ -62,7 +72,7 @@ const SearchWrapper = styled.div`
   border-bottom: 1px solid ${white40};
 `;
 
-export const SearchInput = ({ innerRef, onChange }) =>
+export const SearchInput = ({ innerRef, onChange }) => (
   <SearchWrapper>
     <SearchIcon
       style={{
@@ -73,4 +83,5 @@ export const SearchInput = ({ innerRef, onChange }) =>
       }}
     />
     <Search ref={innerRef} onChange={onChange} />
-  </SearchWrapper>;
+  </SearchWrapper>
+);
