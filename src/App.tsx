@@ -13,7 +13,8 @@ function App({ firebase }: Props) {
       setRecipes(data);
     };
     getRecipes();
-  });
+    return () => {};
+  }, []);
   const content = Object.values(recipes).length ? (
     <p>{JSON.stringify(recipes)}</p>
   ) : (
