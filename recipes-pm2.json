@@ -1,8 +1,0 @@
-{
-    "script": "app.js",
-    "name": "recipes",
-    "instances": 1,
-    "error_file":"logs/recipieserr.log",
-    "out_file": "logs/recipes.log",
-    "pid_file": "logs/recipespid.log"
-}
