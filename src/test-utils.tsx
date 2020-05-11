@@ -3,7 +3,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import Firebase from "./firebase";
 const fakebase = {
-  once: (str: string) => Promise.resolve({ a: { blah: "blah" } }),
+  once: (str: string) => Promise.resolve({ a: { title: "blah" } }),
 };
 
 const AllTheProviders = ({ children }: any) => {
