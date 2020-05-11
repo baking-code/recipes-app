@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useFirebase, FirebaseTypes } from "./firebase";
+import List from "./components/List";
 import "./App.css";
 export interface Props {
   firebase: FirebaseTypes;
 }
 function App({ firebase }: Props) {
-  const [recipes, setRecipes] = useState({});
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    const getRecipes = async () => {
+    (async () => {
       const data = await firebase.once("value");
-      setRecipes(data);
-    };
-    getRecipes();
-    return () => {};
-  }, []);
-  const content = Object.values(recipes).length ? (
-    <p>{JSON.stringify(recipes)}</p>
-  ) : (
-    <p>Loading</p>
-  );
+      setRecipes(Object.values(data.val()));
+    })();
+  }, [firebase]);
+  const content = recipes.length ? <List items={recipes} /> : <p>Loading</p>;
   return (
     <div className="App">
       <header className="App-header">Recipeasy</header>

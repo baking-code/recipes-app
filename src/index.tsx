@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import firebase from "firebase";
 import FirebaseContext from "./firebase";
+import ThemeProvider from "./theme";
 import * as serviceWorker from "./serviceWorker";
 
 const config = {
@@ -19,9 +20,11 @@ const ref = firebase.database().ref();
 
 ReactDOM.render(
   <React.StrictMode>
-    <FirebaseContext.Provider value={ref}>
-      <App />
-    </FirebaseContext.Provider>
+    <ThemeProvider>
+      <FirebaseContext.Provider value={ref}>
+        <App />
+      </FirebaseContext.Provider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
