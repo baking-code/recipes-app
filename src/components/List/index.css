@@ -1,12 +1,22 @@
-.Main {
+.App {
+  text-align: center;
+  background-color: #282c34;
+  color: white;
+}
+
+.App-header {
+  min-height: 60px;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  max-width: 80vw;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 4vmin);
 }
 
-.List {
+.App-link {
+  color: #61dafb;
 }
 
-.ListItem {
+main {
+  height: calc(100vh - 60px);
 }

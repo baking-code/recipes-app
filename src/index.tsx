@@ -1,11 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
-import firebase from "firebase";
-import FirebaseContext from "./firebase";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import List from "./components/List";
+import Recipe from "./components/Recipe";
 import ThemeProvider from "./theme";
 import * as serviceWorker from "./serviceWorker";
+import "./index.css";
 
 const config = {
   apiKey: "AIzaSyAP4jPCm2k95KUBf0tEznvoZ0SE4EAo_o8",
@@ -21,9 +22,12 @@ const ref = firebase.database().ref();
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider>
-      <FirebaseContext.Provider value={ref}>
-        <App />
-      </FirebaseContext.Provider>
+      <Router>
+        <Routes>
+          <Route path="/:id/:edit" element={<Recipe />} />
+          <Route path="/" element={<List />} />
+        </Routes>
+      </Router>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")

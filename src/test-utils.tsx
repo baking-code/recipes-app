@@ -1,25 +1,21 @@
-// test-utils.js
 import React from "react";
 import { render } from "@testing-library/react";
-import Firebase from "./firebase";
-const fakebase = {
-  once: (str: string) =>
-    Promise.resolve({
-      val: function () {
-        return { a: { name: "blah" } };
-      },
-    }),
-};
-
-const AllTheProviders = ({ children }: any) => {
-  return <Firebase.Provider value={fakebase}>{children}</Firebase.Provider>;
-};
-
-const customRender = (ui: any, options?: object) =>
-  render(ui, { wrapper: AllTheProviders, ...options });
+import { createMemoryHistory } from "history";
+import { MemoryRouter as Router } from "react-router-dom";
+// test utils file
+function renderWithRouter(
+  ui: any,
+  {
+    route: any = "/",
+    history = createMemoryHistory({ initialEntries: ["/"] })
+  } = {}
+) {
+  const Wrapper = ({ children }: any) => <Router>{children}</Router>;
+  return render(ui, { wrapper: Wrapper });
+}
 
 // re-export everything
 export * from "@testing-library/react";
 
 // override render method
-export { customRender as render };
+export { renderWithRouter as render };
