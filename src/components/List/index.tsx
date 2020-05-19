@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useFirebase, FirebaseTypes } from "../../firebase";
+import firebase from "../../firebase";
 import List from "./list";
 import "./index.css";
-export interface Props {
-  firebase: FirebaseTypes;
-}
-function App({ firebase }: Props) {
+
+function App() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     (async () => {
-      const data = await firebase.once("value");
+      const data = await firebase.database().ref().once("value");
       setRecipes(Object.values(data.val()));
     })();
-  }, [firebase]);
+  }, []);
   const content = recipes.length ? <List items={recipes} /> : <p>Loading</p>;
   return (
     <div className="App">
@@ -23,4 +21,4 @@ function App({ firebase }: Props) {
   );
 }
 
-export default useFirebase(App);
+export default App;

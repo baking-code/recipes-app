@@ -1,17 +1,13 @@
-import React from "react";
+import firebase from "firebase";
 
-const FirebaseContext = React.createContext({});
-export default FirebaseContext;
+const config = {
+  apiKey: "AIzaSyAP4jPCm2k95KUBf0tEznvoZ0SE4EAo_o8",
+  authDomain: "recipesapp-3d38b.firebaseapp.com",
+  databaseURL: "https://recipesapp-3d38b.firebaseio.com",
+  projectId: "recipesapp-3d38b",
+  storageBucket: "recipesapp-3d38b.appspot.com",
+  messagingSenderId: "279594077217"
+};
+firebase.initializeApp(config);
 
-export const useFirebase = (Wrapped: any) => (props: object) => (
-  <FirebaseContext.Consumer>
-    {(firebase: object) => <Wrapped {...props} firebase={firebase} />}
-  </FirebaseContext.Consumer>
-);
-
-interface firebaseFunc {
-  (val: string): Promise<any>;
-}
-export interface FirebaseTypes {
-  once: firebaseFunc;
-}
+export default firebase;
