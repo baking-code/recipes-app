@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import firebase from "../../firebase";
 import List from "./list";
+import Header from "../header";
 import "./index.css";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
   const content = recipes.length ? <List items={recipes} /> : <p>Loading</p>;
   return (
     <div className="App">
-      <header className="App-header">Recipeasy</header>
+      <Header header="Recipeasy" />
       <main>{content}</main>
     </div>
   );
