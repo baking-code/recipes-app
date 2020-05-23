@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "../../test-utils";
-import List from "./index";
+import Recipe from "./index";
 
-test("renders app header", async () => {
-  // const { getByText, findByText } = render(<List />);
-  // const header = getByText(/recipeasy/i);
+test("renders recipe", async () => {
+  const { getByText, findByText } = render(<Recipe />, { route: "/a" });
+  // const header = getByText(/blah/i);
   // expect(header).toBeInTheDocument();
-  // const blah = await findByText(/blah/i);
-  // expect(blah).toBeInTheDocument();
+  const blah = await findByText(/blah/i);
+  expect(blah).toBeInTheDocument();
 });

@@ -13,6 +13,7 @@ ReactDOM.render(
     <ThemeProvider>
       <Router>
         <Routes>
+          <Route path="/:id/:edit" element={<Recipe />} />
           <Route path="/:id" element={<Recipe />} />
           <Route path="/" element={<List />} />
         </Routes>
